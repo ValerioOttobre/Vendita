@@ -4,6 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Formazioni Vendita - Hub</title>
+
+  <!-- Password (semplice) -->
+  <script>
+    const passwordCorretta = "fiumi465";
+    const passwordInserita = prompt("Inserisci la password per accedere:");
+    if (passwordInserita !== passwordCorretta) {
+      alert("Password errata");
+      window.location.href = "https://www.google.com";
+    }
+  </script>
+
   <style>
     :root{
       --bg:#0b1220;
@@ -136,115 +147,106 @@
   </style>
 </head>
 
-<script>
-  const passwordCorretta = "fiumi465"; //
-
-  const passwordInserita = prompt("Inserisci la password per accedere:");
-
-  if (passwordInserita !== passwordCorretta) {
-    alert("Password errata");
-    window.location.href = "https://www.google.com";
-  }
-</script>
-
 <body>
   <header>
     <div class="title">
       <span class="badge">Formazioni Vendita</span>
       <div>
         <h1>Hub rapido per i colleghi</h1>
-        <p>10 argomenti principali. Apri dal telefono, trovi subito ciò che ti serve.</p>
+        <p>Scegli una sezione per aprire la formazione relativa.</p>
       </div>
     </div>
   </header>
 
   <main>
     <div class="grid">
-      <a class="btn" href="argomenti/1-accoglienza.html">
+
+      <a class="btn" href="argomenti/presentazione-wow.html">
         <div class="left">
-          <div class="label">1) Accoglienza</div>
-          <div class="sub">Primi 30 secondi, approccio e tono</div>
+          <div class="label">Presentazione WOW</div>
+          <div class="sub">Impatto, apertura e coinvolgimento</div>
         </div>
-        <div class="icon">👋</div>
+        <div class="icon">✨</div>
       </a>
 
-      <a class="btn" href="argomenti/2-analisi-bisogno.html">
+      <a class="btn" href="argomenti/carta-decathlon.html">
         <div class="left">
-          <div class="label">2) Analisi del bisogno</div>
-          <div class="sub">Domande utili, ascolto, riformulazione</div>
+          <div class="label">Carta Decathlon</div>
+          <div class="sub">Vantaggi, attivazione, uso in cassa</div>
         </div>
-        <div class="icon">🎯</div>
+        <div class="icon">💳</div>
       </a>
 
-      <a class="btn" href="argomenti/3-argomentazione.html">
+      <a class="btn" href="argomenti/second-hand.html">
         <div class="left">
-          <div class="label">3) Argomentazione</div>
-          <div class="sub">Benefici, prova, comparazione</div>
+          <div class="label">Second Hand</div>
+          <div class="sub">Valutazione, proposta, logica circolare</div>
         </div>
-        <div class="icon">💬</div>
+        <div class="icon">♻️</div>
       </a>
 
-      <a class="btn" href="argomenti/4-obiezioni.html">
+      <a class="btn" href="argomenti/garanzia-e-assicurazione.html">
         <div class="left">
-          <div class="label">4) Gestione obiezioni</div>
-          <div class="sub">Prezzo, dubbi, indecisione</div>
+          <div class="label">Garanzia e Assicurazione</div>
+          <div class="sub">Coperture, spiegazione semplice, esempi</div>
         </div>
         <div class="icon">🛡️</div>
       </a>
 
-      <a class="btn" href="argomenti/5-chiusura.html">
+      <a class="btn" href="argomenti/fatturazione.html">
         <div class="left">
-          <div class="label">5) Chiusura</div>
-          <div class="sub">Invito all’azione, proposta chiara</div>
-        </div>
-        <div class="icon">✅</div>
-      </a>
-
-      <a class="btn" href="argomenti/6-cross-selling.html">
-        <div class="left">
-          <div class="label">6) Cross-selling</div>
-          <div class="sub">Complementari, bundle, logica sport</div>
-        </div>
-        <div class="icon">➕</div>
-      </a>
-
-      <a class="btn" href="argomenti/7-servizi.html">
-        <div class="left">
-          <div class="label">7) Servizi</div>
-          <div class="sub">Resi, riparazioni, noleggio, ecc.</div>
-        </div>
-        <div class="icon">🧰</div>
-      </a>
-
-      <a class="btn" href="argomenti/8-cassa.html">
-        <div class="left">
-          <div class="label">8) Cassa & saluto</div>
-          <div class="sub">Ultimo contatto, fidelizzazione</div>
+          <div class="label">Fatturazione</div>
+          <div class="sub">Dati, flusso, controlli rapidi</div>
         </div>
         <div class="icon">🧾</div>
       </a>
 
-      <a class="btn" href="argomenti/9-standard-e-errori.html">
+      <a class="btn" href="argomenti/ordine-plus.html">
         <div class="left">
-          <div class="label">9) Standard & errori comuni</div>
-          <div class="sub">Check rapidi, cosa evitare</div>
+          <div class="label">Ordine PLUS</div>
+          <div class="sub">Ordine, tracking, gestione cliente</div>
         </div>
-        <div class="icon">📌</div>
+        <div class="icon">📦</div>
       </a>
 
-      <a class="btn" href="argomenti/10-script-e-schede.html">
+      <a class="btn" href="argomenti/intermag.html">
         <div class="left">
-          <div class="label">10) Script & schede</div>
-          <div class="sub">Frasi pronte, mini-guide stampabili</div>
+          <div class="label">Intermag</div>
+          <div class="sub">Ricerca, disponibilità, trasferimenti</div>
         </div>
-        <div class="icon">🗂️</div>
+        <div class="icon">🔎</div>
       </a>
+
+      <a class="btn" href="argomenti/b2b.html">
+        <div class="left">
+          <div class="label">B2B</div>
+          <div class="sub">Clienti business, bisogni, proposta</div>
+        </div>
+        <div class="icon">🏢</div>
+      </a>
+
+      <a class="btn" href="argomenti/incasso.html">
+        <div class="left">
+          <div class="label">Incasso</div>
+          <div class="sub">Pagamenti, controlli, best practice</div>
+        </div>
+        <div class="icon">💶</div>
+      </a>
+
+      <a class="btn" href="argomenti/assistenza.html">
+        <div class="left">
+          <div class="label">Assistenza</div>
+          <div class="sub">Supporto, gestione casi, tono e soluzione</div>
+        </div>
+        <div class="icon">🧑‍🔧</div>
+      </a>
+
     </div>
   </main>
 
   <footer>
     <div class="note">
-      <b>Tip:</b> tieni ogni argomento in “blocchi” da 30–60 secondi di lettura, così da usarlo in reparto.
+      <b>Tip:</b> tieni ogni sezione in blocchi brevi (30–60 secondi) per consultazione rapida in negozio.
     </div>
   </footer>
 </body>
