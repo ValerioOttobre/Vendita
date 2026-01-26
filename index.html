@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formazioni Vendita - Hub</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --text:#eaf0ff;
+      --muted:#aab6d6;
+      --accent:#3ddc97;
+      --btn:#1a2642;
+      --btnHover:#223357;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 10px 24px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(61,220,151,.14), transparent 50%),
+                  radial-gradient(900px 500px at 95% 20%, rgba(87,140,255,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+    header{
+      padding:22px 16px 10px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .title{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+    }
+    .badge{
+      background: rgba(61,220,151,.18);
+      border:1px solid rgba(61,220,151,.25);
+      color: var(--text);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      white-space:nowrap;
+    }
+    h1{
+      margin:0;
+      font-size:18px;
+      line-height:1.2;
+    }
+    p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    main{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 10px 16px 28px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (min-width: 520px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 900px){
+      .grid{ grid-template-columns: 1fr 1fr 1fr; }
+    }
+    a.btn{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 14px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), transparent 30%), var(--btn);
+      border:1px solid var(--border);
+      color:var(--text);
+      text-decoration:none;
+      box-shadow: var(--shadow);
+      min-height:56px;
+      transition: transform .08s ease, background .12s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    a.btn:active{ transform: scale(.99); }
+    a.btn:hover{ background: linear-gradient(180deg, rgba(255,255,255,.06), transparent 30%), var(--btnHover); }
+    .left{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
+    }
+    .label{
+      font-weight:650;
+      font-size:14px;
+      letter-spacing:.1px;
+    }
+    .sub{
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .icon{
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      background: rgba(61,220,151,.15);
+      border:1px solid rgba(61,220,151,.18);
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+      font-size:16px;
+    }
+    footer{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 22px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .note{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding:12px 14px;
+    }
+    .note b{ color: var(--text); }
+  </style>
+</head>
+
+<script>
+  const passwordCorretta = "fiumi465"; //
+
+  const passwordInserita = prompt("Inserisci la password per accedere:");
+
+  if (passwordInserita !== passwordCorretta) {
+    alert("Password errata");
+    window.location.href = "https://www.google.com";
+  }
+</script>
+
+<body>
+  <header>
+    <div class="title">
+      <span class="badge">Formazioni Vendita</span>
+      <div>
+        <h1>Hub rapido per i colleghi</h1>
+        <p>10 argomenti principali. Apri dal telefono, trovi subito ciò che ti serve.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid">
+      <a class="btn" href="argomenti/1-accoglienza.html">
+        <div class="left">
+          <div class="label">1) Accoglienza</div>
+          <div class="sub">Primi 30 secondi, approccio e tono</div>
+        </div>
+        <div class="icon">👋</div>
+      </a>
+
+      <a class="btn" href="argomenti/2-analisi-bisogno.html">
+        <div class="left">
+          <div class="label">2) Analisi del bisogno</div>
+          <div class="sub">Domande utili, ascolto, riformulazione</div>
+        </div>
+        <div class="icon">🎯</div>
+      </a>
+
+      <a class="btn" href="argomenti/3-argomentazione.html">
+        <div class="left">
+          <div class="label">3) Argomentazione</div>
+          <div class="sub">Benefici, prova, comparazione</div>
+        </div>
+        <div class="icon">💬</div>
+      </a>
+
+      <a class="btn" href="argomenti/4-obiezioni.html">
+        <div class="left">
+          <div class="label">4) Gestione obiezioni</div>
+          <div class="sub">Prezzo, dubbi, indecisione</div>
+        </div>
+        <div class="icon">🛡️</div>
+      </a>
+
+      <a class="btn" href="argomenti/5-chiusura.html">
+        <div class="left">
+          <div class="label">5) Chiusura</div>
+          <div class="sub">Invito all’azione, proposta chiara</div>
+        </div>
+        <div class="icon">✅</div>
+      </a>
+
+      <a class="btn" href="argomenti/6-cross-selling.html">
+        <div class="left">
+          <div class="label">6) Cross-selling</div>
+          <div class="sub">Complementari, bundle, logica sport</div>
+        </div>
+        <div class="icon">➕</div>
+      </a>
+
+      <a class="btn" href="argomenti/7-servizi.html">
+        <div class="left">
+          <div class="label">7) Servizi</div>
+          <div class="sub">Resi, riparazioni, noleggio, ecc.</div>
+        </div>
+        <div class="icon">🧰</div>
+      </a>
+
+      <a class="btn" href="argomenti/8-cassa.html">
+        <div class="left">
+          <div class="label">8) Cassa & saluto</div>
+          <div class="sub">Ultimo contatto, fidelizzazione</div>
+        </div>
+        <div class="icon">🧾</div>
+      </a>
+
+      <a class="btn" href="argomenti/9-standard-e-errori.html">
+        <div class="left">
+          <div class="label">9) Standard & errori comuni</div>
+          <div class="sub">Check rapidi, cosa evitare</div>
+        </div>
+        <div class="icon">📌</div>
+      </a>
+
+      <a class="btn" href="argomenti/10-script-e-schede.html">
+        <div class="left">
+          <div class="label">10) Script & schede</div>
+          <div class="sub">Frasi pronte, mini-guide stampabili</div>
+        </div>
+        <div class="icon">🗂️</div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="note">
+      <b>Tip:</b> tieni ogni argomento in “blocchi” da 30–60 secondi di lettura, così da usarlo in reparto.
+    </div>
+  </footer>
+</body>
+</html>
