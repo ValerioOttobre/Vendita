@@ -17,18 +17,17 @@
 
   <style>
     :root{
-      /* Palette ispirata Decathlon (blu più scuro + accento) */
-      --bg: #f5f7fb;
-      --card: #ffffff;
-      --text: #0f172a;
-      --muted: #5b677a;
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#5b677a;
 
-      --decathlon-blue: #003a70;     /* blu scuro */
-      --decathlon-blue-2: #005fb8;   /* accento */
-      --ring: rgba(0, 58, 112, .25);
+      --decathlon-blue:#003a70;     /* blu più scuro */
+      --decathlon-blue-2:#005fb8;   /* accento */
+      --ring:rgba(0,58,112,.25);
 
-      --shadow: 0 10px 30px rgba(15, 23, 42, .08);
-      --radius: 16px;
+      --shadow:0 10px 30px rgba(15,23,42,.08);
+      --radius:16px;
     }
 
     *{ box-sizing:border-box; }
@@ -50,11 +49,11 @@
       align-items:center;
       justify-content:space-between;
       gap: 12px;
-      padding: 18px 18px;
+      padding: 16px 18px;
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(2, 6, 23, .06);
+      border: 1px solid rgba(2,6,23,.06);
     }
 
     .brand{
@@ -64,29 +63,33 @@
       min-width: 240px;
     }
 
-    .logo{
+    /* Contenitore del logo: stesse dimensioni della vecchia "D" */
+    .logoBox{
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: linear-gradient(135deg, var(--decathlon-blue) 0%, var(--decathlon-blue-2) 100%);
-      box-shadow: 0 10px 25px rgba(0, 58, 112, .25);
       display:flex;
       align-items:center;
       justify-content:center;
-      color:#fff;
-      font-weight: 800;
-      letter-spacing: .5px;
-      user-select:none;
+      overflow:hidden; /* mantiene l'immagine dentro i bordi arrotondati */
+      background: transparent;
+    }
+
+    .logoBox img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* non deforma */
+      display:block;
     }
 
     h1{
       margin:0;
-      font-size: 18px;
+      font-size: 17px; /* leggermente più discreto: l'azione sono i tasti */
       line-height: 1.2;
     }
     .subtitle{
       margin: 2px 0 0;
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--muted);
     }
 
@@ -107,7 +110,7 @@
       font-size: 14px;
     }
     .search input:focus{
-      border-color: rgba(0, 58, 112, .45);
+      border-color: rgba(0,58,112,.45);
       box-shadow: 0 0 0 4px var(--ring);
     }
 
@@ -120,7 +123,7 @@
 
     @media (max-width: 860px){
       main{ grid-template-columns: 1fr; }
-      .brand{ min-width: auto; }
+      .brand{ min-width:auto; }
       .search{ justify-content: stretch; }
     }
 
@@ -128,29 +131,96 @@
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(2, 6, 23, .06);
+      border: 1px solid rgba(2,6,23,.06);
       padding: 16px;
     }
 
-    .tipTitle{
+    /* Sezioni = priorità */
+    .gridTitle{
       margin: 0 0 10px;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: .2px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 14px; /* spazio tra tasti e tip: tasti "vincono" */
+    }
+    @media (max-width: 520px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .sectionBtn{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      width:100%;
+      text-align:left;
+
+      /* più grandi -> più importanza */
+      padding: 14px 16px;
+      border-radius: 16px;
+
+      background: var(--decathlon-blue);
+      color:#fff;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 12px 24px rgba(0,58,112,.18);
+
+      transition: transform .08s ease, filter .15s ease, box-shadow .15s ease;
+      cursor:pointer;
+    }
+    .sectionBtn:hover{
+      filter: brightness(1.07);
+      box-shadow: 0 14px 28px rgba(0,58,112,.22);
+    }
+    .sectionBtn:active{ transform: translateY(1px); }
+
+    .left{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .emoji{ font-size: 19px; }
+    .label{
+      font-weight: 900;
+      font-size: 15px; /* leggermente più grande */
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .arrow{
+      opacity:.95;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    /* Tip = in alto nella pagina (qui sotto ai tasti, ma ancora "above the fold" su desktop)
+       e più discreto per non competere con i pulsanti */
+    .tipTitle{
+      margin: 0 0 8px;
+      font-size: 12px;
       letter-spacing: .2px;
       color: var(--muted);
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
     }
 
     .tipBox{
       border-radius: 14px;
-      padding: 14px;
-      border: 1px solid rgba(0, 58, 112, .15);
-      background: linear-gradient(180deg, rgba(0,95,184,.06) 0%, rgba(0,58,112,.04) 100%);
+      padding: 12px 12px;
+      border: 1px solid rgba(0,58,112,.12);
+      background: rgba(0,95,184,.05);
     }
 
     .tipText{
-      margin: 0 0 12px;
-      font-size: 15px;
+      margin: 0 0 10px;
+      font-size: 14px;
       line-height: 1.35;
       font-weight: 650;
       color: var(--text);
@@ -164,86 +234,24 @@
 
     .btn{
       appearance:none;
-      border: none;
+      border:none;
       cursor:pointer;
-      padding: 11px 14px;
+      padding: 10px 12px;
       border-radius: 12px;
-      font-weight: 750;
-      font-size: 14px;
-      transition: transform .08s ease, filter .15s ease, box-shadow .15s ease;
+      font-weight: 800;
+      font-size: 13px;
+      transition: transform .08s ease, filter .15s ease;
       user-select:none;
     }
-
     .btn:active{ transform: translateY(1px); }
 
-    .btnPrimary{
-      background: var(--decathlon-blue);
-      color: #fff;
-      box-shadow: 0 10px 20px rgba(0, 58, 112, .20);
-    }
-    .btnPrimary:hover{ filter: brightness(1.05); }
-
-    .btnGhost{
-      background: rgba(0, 58, 112, .06);
+    /* Bottoni tip volutamente più "soft" dei tasti sezione */
+    .btnSoft{
+      background: rgba(0,58,112,.08);
       color: var(--decathlon-blue);
-      border: 1px solid rgba(0, 58, 112, .18);
+      border: 1px solid rgba(0,58,112,.16);
     }
-    .btnGhost:hover{ filter: brightness(1.02); }
-
-    /* Griglia dei 10 tasti */
-    .gridTitle{
-      margin: 0 0 10px;
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--text);
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-    @media (max-width: 520px){
-      .grid{ grid-template-columns: 1fr; }
-    }
-
-    .sectionBtn{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 12px;
-      width:100%;
-      text-align:left;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: var(--decathlon-blue);
-      color:#fff;
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 10px 20px rgba(0, 58, 112, .16);
-      transition: transform .08s ease, filter .15s ease, box-shadow .15s ease;
-      cursor:pointer;
-    }
-    .sectionBtn:hover{ filter: brightness(1.06); }
-    .sectionBtn:active{ transform: translateY(1px); }
-
-    .left{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      min-width: 0;
-    }
-    .emoji{ font-size: 18px; }
-    .label{
-      font-weight: 850;
-      font-size: 14px;
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
-    }
-    .arrow{
-      opacity:.9;
-      font-weight: 900;
-    }
+    .btnSoft:hover{ filter: brightness(1.03); }
 
     footer{
       margin-top: 14px;
@@ -258,7 +266,9 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="logo">D</div>
+        <div class="logoBox" aria-label="Decathlon">
+          <img src="decathlon-logo.png" alt="Decathlon" />
+        </div>
         <div>
           <h1>Formazioni Vendita</h1>
           <p class="subtitle">Hub rapido per tips, strumenti e procedure</p>
@@ -271,23 +281,11 @@
     </header>
 
     <main>
-      <!-- SINISTRA: Tip della settimana (sopra ai tasti) -->
+      <!-- SINISTRA: priorità ai tasti + tip in alto e discreto -->
       <section class="card">
-        <div class="tipTitle">Tip della settimana</div>
-
-        <div class="tipBox">
-          <p class="tipText" id="tipText">Caricamento tip…</p>
-          <div class="btnRow">
-            <button class="btn btnPrimary" id="changeTipBtn">Cambia tip</button>
-            <button class="btn btnGhost" id="copyTipBtn">Copia</button>
-          </div>
-        </div>
-
-        <div style="height:14px;"></div>
-
         <div class="gridTitle">Sezioni</div>
+
         <div class="grid" id="sectionsGrid">
-          <!-- 10 tasti (uno per sezione) -->
           <button class="sectionBtn" data-name="presentazione wow" onclick="goTo('presentazione-wow.html')">
             <span class="left"><span class="emoji">🎤</span><span class="label">Presentazione WOW</span></span>
             <span class="arrow">›</span>
@@ -338,17 +336,25 @@
             <span class="arrow">›</span>
           </button>
         </div>
+
+        <div class="tipTitle">Tip della settimana</div>
+        <div class="tipBox">
+          <p class="tipText" id="tipText">Caricamento tip…</p>
+          <div class="btnRow">
+            <button class="btn btnSoft" id="changeTipBtn">Cambia tip</button>
+          </div>
+        </div>
       </section>
 
-      <!-- DESTRA: mini guida / note -->
+      <!-- DESTRA: note -->
       <aside class="card">
         <div class="gridTitle">Note rapide</div>
         <p style="margin:0; color:var(--muted); line-height:1.5;">
-          Usa la ricerca per filtrare le sezioni. Il “Tip della settimana” può essere cambiato e copiato al volo.
+          Usa la ricerca per filtrare le sezioni: l’obiettivo è arrivare al contenuto con 1–2 click.
         </p>
         <div style="height:12px;"></div>
         <p style="margin:0; color:var(--muted); line-height:1.5;">
-          Quando allineeremo le sottopagine, porteremo la stessa palette e lo stesso header ovunque.
+          Se il sito viene usato spesso, possiamo aggiungere “Sezioni preferite” in alto.
         </p>
       </aside>
     </main>
@@ -375,7 +381,6 @@
 
     const tipText = document.getElementById("tipText");
     const changeTipBtn = document.getElementById("changeTipBtn");
-    const copyTipBtn = document.getElementById("copyTipBtn");
 
     function pickRandomTip(){
       const i = Math.floor(Math.random() * tips.length);
@@ -384,16 +389,6 @@
     pickRandomTip();
 
     changeTipBtn.addEventListener("click", pickRandomTip);
-
-    copyTipBtn.addEventListener("click", async () => {
-      try{
-        await navigator.clipboard.writeText(tipText.textContent);
-        copyTipBtn.textContent = "Copiato!";
-        setTimeout(() => (copyTipBtn.textContent = "Copia"), 900);
-      }catch(e){
-        alert("Copia non riuscita. Seleziona il testo e copialo manualmente.");
-      }
-    });
 
     // Navigazione
     function goTo(page){
