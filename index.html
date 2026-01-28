@@ -5,205 +5,422 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Formazioni Vendita - Hub</title>
 
+  <!-- Password (semplice) -->
+  <script>
+    const passwordCorretta = "fiumi465";
+    const passwordInserita = prompt("Inserisci la password per accedere:");
+    if (passwordInserita !== passwordCorretta) {
+      alert("Password errata");
+      window.location.href = "https://www.google.com";
+    }
+  </script>
+
   <style>
     :root{
-      /* 🎯 Colori reali Decathlon (dal logo) */
-      --blue:#3943B3;
-      --blueDark:#2E3694;
-      --blueDarker:#1F255F;
+      /* Palette ispirata Decathlon (blu più scuro + accento) */
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #5b677a;
 
-      --bg:#F4F6FF;
-      --card:#FFFFFF;
-      --text:#1F255F;
-      --muted:#5C6AC4;
+      --decathlon-blue: #003a70;     /* blu scuro */
+      --decathlon-blue-2: #005fb8;   /* accento */
+      --ring: rgba(0, 58, 112, .25);
 
-      --border:rgba(31,37,95,.15);
-      --shadow:0 10px 24px rgba(31,37,95,.12);
-      --radius:16px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, .08);
+      --radius: 16px;
     }
 
-    *{box-sizing:border-box}
+    *{ box-sizing:border-box; }
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(1200px 600px at 20% 0%, rgba(57,67,179,.18), transparent 55%),
-        var(--bg);
-      color:var(--text);
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg) 55%, #ffffff 100%);
+      color: var(--text);
     }
 
-    /* Barra brand */
-    .topbar{
-      background: linear-gradient(90deg, var(--blue), var(--blueDark));
-      color:#fff;
-      padding:10px 16px;
-      font-size:12px;
-    }
-    .topbar .wrap{
-      max-width:980px;
-      margin:0 auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-    .chip{
-      background: rgba(255,255,255,.15);
-      border:1px solid rgba(255,255,255,.25);
-      padding:6px 10px;
-      border-radius:999px;
-      font-weight:700;
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 16px 36px;
     }
 
     header{
-      max-width:980px;
-      margin:0 auto;
-      padding:20px 16px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 18px 18px;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(2, 6, 23, .06);
     }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 240px;
+    }
+
+    .logo{
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--decathlon-blue) 0%, var(--decathlon-blue-2) 100%);
+      box-shadow: 0 10px 25px rgba(0, 58, 112, .25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-weight: 800;
+      letter-spacing: .5px;
+      user-select:none;
+    }
+
     h1{
-      margin:10px 0 0;
-      font-size:20px;
+      margin:0;
+      font-size: 18px;
+      line-height: 1.2;
     }
-    p{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:13px;
+    .subtitle{
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .search{
+      flex:1;
+      display:flex;
+      justify-content:flex-end;
+    }
+
+    .search input{
+      width: min(420px, 100%);
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(2,6,23,.12);
+      outline:none;
+      box-shadow: 0 0 0 0 var(--ring);
+      transition: box-shadow .15s ease, border-color .15s ease;
+      font-size: 14px;
+    }
+    .search input:focus{
+      border-color: rgba(0, 58, 112, .45);
+      box-shadow: 0 0 0 4px var(--ring);
     }
 
     main{
-      max-width:980px;
-      margin:0 auto;
-      padding:12px 16px 28px;
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
     }
 
-    /* Tip */
-    .tip{
+    @media (max-width: 860px){
+      main{ grid-template-columns: 1fr; }
+      .brand{ min-width: auto; }
+      .search{ justify-content: stretch; }
+    }
+
+    .card{
       background: var(--card);
-      border:1px solid var(--border);
       border-radius: var(--radius);
-      padding:14px;
       box-shadow: var(--shadow);
+      border: 1px solid rgba(2, 6, 23, .06);
+      padding: 16px;
     }
-    .tipbar{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      flex-wrap:wrap;
-    }
-    .tiptext{flex:1}
-    .tipbtn{
-      background: var(--blue);
-      color:#fff;
-      border:none;
-      border-radius:12px;
-      padding:10px 14px;
-      font-weight:700;
-      cursor:pointer;
-      box-shadow: var(--shadow);
-    }
-    .tipbtn:hover{ background: var(--blueDark); }
-    .tipbtn:active{ transform:scale(.98); }
 
-    /* Griglia */
+    .tipTitle{
+      margin: 0 0 10px;
+      font-size: 14px;
+      letter-spacing: .2px;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .tipBox{
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid rgba(0, 58, 112, .15);
+      background: linear-gradient(180deg, rgba(0,95,184,.06) 0%, rgba(0,58,112,.04) 100%);
+    }
+
+    .tipText{
+      margin: 0 0 12px;
+      font-size: 15px;
+      line-height: 1.35;
+      font-weight: 650;
+      color: var(--text);
+    }
+
+    .btnRow{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      appearance:none;
+      border: none;
+      cursor:pointer;
+      padding: 11px 14px;
+      border-radius: 12px;
+      font-weight: 750;
+      font-size: 14px;
+      transition: transform .08s ease, filter .15s ease, box-shadow .15s ease;
+      user-select:none;
+    }
+
+    .btn:active{ transform: translateY(1px); }
+
+    .btnPrimary{
+      background: var(--decathlon-blue);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(0, 58, 112, .20);
+    }
+    .btnPrimary:hover{ filter: brightness(1.05); }
+
+    .btnGhost{
+      background: rgba(0, 58, 112, .06);
+      color: var(--decathlon-blue);
+      border: 1px solid rgba(0, 58, 112, .18);
+    }
+    .btnGhost:hover{ filter: brightness(1.02); }
+
+    /* Griglia dei 10 tasti */
+    .gridTitle{
+      margin: 0 0 10px;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
     .grid{
       display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
-      margin-top:16px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
     }
-    @media (min-width:520px){ .grid{grid-template-columns:1fr 1fr;} }
-    @media (min-width:900px){ .grid{grid-template-columns:1fr 1fr 1fr;} }
+    @media (max-width: 520px){
+      .grid{ grid-template-columns: 1fr; }
+    }
 
-    a.btn{
+    .sectionBtn{
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      padding:16px;
-      border-radius: var(--radius);
-      background: var(--blue);
+      justify-content: space-between;
+      gap: 12px;
+      width:100%;
+      text-align:left;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--decathlon-blue);
       color:#fff;
-      text-decoration:none;
-      box-shadow: var(--shadow);
-      transition:.12s;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 20px rgba(0, 58, 112, .16);
+      transition: transform .08s ease, filter .15s ease, box-shadow .15s ease;
+      cursor:pointer;
     }
-    a.btn:hover{ background: var(--blueDark); }
-    a.btn:active{ transform:scale(.98); }
+    .sectionBtn:hover{ filter: brightness(1.06); }
+    .sectionBtn:active{ transform: translateY(1px); }
 
+    .left{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .emoji{ font-size: 18px; }
     .label{
-      font-weight:800;
-      font-size:14px;
+      font-weight: 850;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
     }
-    .sub{
-      font-size:12px;
-      opacity:.85;
-    }
-    .icon{
-      background: rgba(255,255,255,.18);
-      border-radius:12px;
-      width:38px;
-      height:38px;
-      display:grid;
-      place-items:center;
-      font-size:16px;
+    .arrow{
+      opacity:.9;
+      font-weight: 900;
     }
 
     footer{
-      max-width:980px;
-      margin:0 auto;
-      padding:16px;
-      font-size:12px;
-      color:var(--muted);
+      margin-top: 14px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12px;
     }
   </style>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="wrap">
-      <span class="chip">DECATHLON • Sales Hub</span>
-      <span>Formazioni Vendita</span>
-    </div>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">D</div>
+        <div>
+          <h1>Formazioni Vendita</h1>
+          <p class="subtitle">Hub rapido per tips, strumenti e procedure</p>
+        </div>
+      </div>
+
+      <div class="search">
+        <input id="searchInput" type="search" placeholder="Cerca una sezione (es. garanzia, incasso…)" />
+      </div>
+    </header>
+
+    <main>
+      <!-- SINISTRA: Tip della settimana (sopra ai tasti) -->
+      <section class="card">
+        <div class="tipTitle">Tip della settimana</div>
+
+        <div class="tipBox">
+          <p class="tipText" id="tipText">Caricamento tip…</p>
+          <div class="btnRow">
+            <button class="btn btnPrimary" id="changeTipBtn">Cambia tip</button>
+            <button class="btn btnGhost" id="copyTipBtn">Copia</button>
+          </div>
+        </div>
+
+        <div style="height:14px;"></div>
+
+        <div class="gridTitle">Sezioni</div>
+        <div class="grid" id="sectionsGrid">
+          <!-- 10 tasti (uno per sezione) -->
+          <button class="sectionBtn" data-name="presentazione wow" onclick="goTo('presentazione-wow.html')">
+            <span class="left"><span class="emoji">🎤</span><span class="label">Presentazione WOW</span></span>
+            <span class="arrow">›</span>
+          </button>
+
+          <button class="sectionBtn" data-name="carta decathlon" onclick="goTo('carta-decathlon.html')">
+            <span class="left"><span class="emoji">💳</span><span class="label">Carta Decathlon</span></span>
+            <span class="arrow">›</span>
+          </button>
+
+          <button class="sectionBtn" data-name="second hand" onclick="goTo('second-hand.html')">
+            <span class="left"><span class="emoji">♻️</span><span class="label">Second Hand</span></span>
+            <span class="arrow">›</span>
+          </button>
+
+          <button class="sectionBtn" data-name="garanzia e assicurazione garanzia assicurazione" onclick="goTo('garanzia-assicurazione.html')">
+            <span class="left"><span class="emoji">🛡️</span><span class="label">Garanzia e Assicurazione</span></span>
+            <span class="arrow">›</span>
+          </button>
+
+          <button class="sectionBtn" data-name="fatturazione fatture" onclick="goTo('fatturazione.html')">
+            <span class="left"><span class="emoji">🧾</span><span class="label">Fatturazione</span></span>
+            <span class="arrow">›</span>
+          </button>
+
+          <button class="sectionBtn" data-name="ordine plus plus" onclick="goTo('ordine-plus.html')">
+            <span class="left"><span class="emoji">➕</span><span class="label">Ordine PLUS</span></span>
+            <span class="arrow">›</span>
+          </button>
+
+          <button class="sectionBtn" data-name="intermag" onclick="goTo('intermag.html')">
+            <span class="left"><span class="emoji">🧭</span><span class="label">Intermag</span></span>
+            <span class="arrow">›</span>
+          </button>
+
+          <button class="sectionBtn" data-name="b2b" onclick="goTo('b2b.html')">
+            <span class="left"><span class="emoji">🏢</span><span class="label">B2B</span></span>
+            <span class="arrow">›</span>
+          </button>
+
+          <button class="sectionBtn" data-name="incasso cassa" onclick="goTo('incasso.html')">
+            <span class="left"><span class="emoji">💰</span><span class="label">Incasso</span></span>
+            <span class="arrow">›</span>
+          </button>
+
+          <button class="sectionBtn" data-name="assistenza aiuto" onclick="goTo('assistenza.html')">
+            <span class="left"><span class="emoji">🧰</span><span class="label">Assistenza</span></span>
+            <span class="arrow">›</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- DESTRA: mini guida / note -->
+      <aside class="card">
+        <div class="gridTitle">Note rapide</div>
+        <p style="margin:0; color:var(--muted); line-height:1.5;">
+          Usa la ricerca per filtrare le sezioni. Il “Tip della settimana” può essere cambiato e copiato al volo.
+        </p>
+        <div style="height:12px;"></div>
+        <p style="margin:0; color:var(--muted); line-height:1.5;">
+          Quando allineeremo le sottopagine, porteremo la stessa palette e lo stesso header ovunque.
+        </p>
+      </aside>
+    </main>
+
+    <footer>
+      © Hub Formazioni Vendita — versione GitHub Pages
+    </footer>
   </div>
 
-  <header>
-    <h1>Chiedi al venditore esperto</h1>
-    <p>Scegli una sezione per aprire l'argomento.</p>
-  </header>
-
-  <main>
-    <div class="tip">
-      <div class="tipbar">
-        <div class="tiptext">
-          <b>Tip della settimana:</b>
-          <span id="tipText"></span>
-        </div>
-        <button class="tipbtn" id="tipBtn">🔄 Cambia tip</button>
-      </div>
-    </div>
-
-    <div class="grid">
-      <a class="btn" href="#"><div><div class="label">Presentazione WOW</div><div class="sub">Impatto e coinvolgimento</div></div><div class="icon">✨</div></a>
-      <a class="btn" href="#"><div><div class="label">Carta Decathlon</div><div class="sub">Vantaggi e utilizzo</div></div><div class="icon">💳</div></a>
-      <a class="btn" href="#"><div><div class="label">Second Hand</div><div class="sub">Economia circolare</div></div><div class="icon">♻️</div></a>
-      <a class="btn" href="#"><div><div class="label">Garanzia</div><div class="sub">Coperture e spiegazione</div></div><div class="icon">🛡️</div></a>
-      <a class="btn" href="#"><div><div class="label">Fatturazione</div><div class="sub">Dati e controlli</div></div><div class="icon">🧾</div></a>
-      <a class="btn" href="#"><div><div class="label">Assistenza</div><div class="sub">Gestione cliente</div></div><div class="icon">🧑‍🔧</div></a>
-    </div>
-  </main>
-
-  <footer>© Hub Formazioni Vendita</footer>
-
   <script>
-    const TIPS=[
-      "Parti sempre dal bisogno del cliente, non dal prodotto.",
-      "Usa esempi concreti: aiutano la comprensione.",
-      "Ripeti il problema con le parole del cliente.",
-      "Proponi un solo vantaggio chiave alla volta."
+    // Tip della settimana
+    const tips = [
+      "Fai 1 domanda in più: spesso è lì che nasce la vendita (bisogno reale).",
+      "Quando proponi un servizio, aggancialo a un problema concreto del cliente.",
+      "Ricapitola in 10 secondi: 'Quindi ti serve X per Y, giusto?'.",
+      "Mostra 2 opzioni: una 'base' e una 'migliore' (aiuta la scelta).",
+      "Se il cliente è indeciso, prova: 'Cosa ti serve assolutamente che faccia?'.",
+      "Prima di chiudere: verifica taglia/uso/compatibilità (riduce resi).",
+      "Usa esempi reali: 'Di solito chi fa X sceglie anche Y'.",
+      "Mantieni il ritmo: una domanda, una risposta, un passo avanti.",
+      "Parla di benefici, non caratteristiche: 'ti fa risparmiare tempo' > 'ha 3 funzioni'.",
+      "Chiudi con serenità: 'Se vuoi, ti preparo io la soluzione più semplice'."
     ];
-    const el=document.getElementById("tipText");
-    const btn=document.getElementById("tipBtn");
-    function rnd(){return TIPS[Math.floor(Math.random()*TIPS.length)]}
-    el.textContent=" "+rnd();
-    btn.onclick=()=>el.textContent=" "+rnd();
+
+    const tipText = document.getElementById("tipText");
+    const changeTipBtn = document.getElementById("changeTipBtn");
+    const copyTipBtn = document.getElementById("copyTipBtn");
+
+    function pickRandomTip(){
+      const i = Math.floor(Math.random() * tips.length);
+      tipText.textContent = tips[i];
+    }
+    pickRandomTip();
+
+    changeTipBtn.addEventListener("click", pickRandomTip);
+
+    copyTipBtn.addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(tipText.textContent);
+        copyTipBtn.textContent = "Copiato!";
+        setTimeout(() => (copyTipBtn.textContent = "Copia"), 900);
+      }catch(e){
+        alert("Copia non riuscita. Seleziona il testo e copialo manualmente.");
+      }
+    });
+
+    // Navigazione
+    function goTo(page){
+      window.location.href = page;
+    }
+    window.goTo = goTo;
+
+    // Ricerca sezioni (filtra i 10 tasti)
+    const searchInput = document.getElementById("searchInput");
+    const grid = document.getElementById("sectionsGrid");
+    const buttons = Array.from(grid.querySelectorAll("button.sectionBtn"));
+
+    function normalize(s){
+      return (s || "").toLowerCase().trim();
+    }
+
+    function filterSections(){
+      const q = normalize(searchInput.value);
+      buttons.forEach(btn => {
+        const name = normalize(btn.getAttribute("data-name"));
+        const label = normalize(btn.innerText);
+        const ok = !q || name.includes(q) || label.includes(q);
+        btn.style.display = ok ? "" : "none";
+      });
+    }
+
+    searchInput.addEventListener("input", filterSections);
   </script>
 </body>
 </html>
