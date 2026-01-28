@@ -7,239 +7,152 @@
 
   <style>
     :root{
-      /* Palette "Decathlon-like" (blu + bianco + azzurro accento) */
-      --blue:#0066ff;          /* brand-ish */
-      --blueDark:#0b2a5b;      /* header/hover */
-      --bg:#f3f7ff;            /* fondo molto chiaro */
-      --card:#ffffff;          /* card */
-      --text:#0b1b3a;          /* testo principale */
-      --muted:#5a6b8a;         /* testo secondario */
-      --accent:#00a8ff;        /* accento azzurro */
-      --btn:#ffffff;           /* bottoni */
-      --btnHover:#f0f6ff;      /* hover */
-      --border:rgba(11,27,58,.12);
-      --shadow: 0 10px 24px rgba(11,27,58,.10);
+      /* 🎯 Colori reali Decathlon (dal logo) */
+      --blue:#3943B3;
+      --blueDark:#2E3694;
+      --blueDarker:#1F255F;
+
+      --bg:#F4F6FF;
+      --card:#FFFFFF;
+      --text:#1F255F;
+      --muted:#5C6AC4;
+
+      --border:rgba(31,37,95,.15);
+      --shadow:0 10px 24px rgba(31,37,95,.12);
       --radius:16px;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
       background:
-        radial-gradient(1200px 600px at 15% 0%, rgba(0,102,255,.16), transparent 55%),
-        radial-gradient(900px 500px at 95% 10%, rgba(0,168,255,.10), transparent 55%),
+        radial-gradient(1200px 600px at 20% 0%, rgba(57,67,179,.18), transparent 55%),
         var(--bg);
+      color:var(--text);
     }
 
-    /* Top bar in stile "brand" */
+    /* Barra brand */
     .topbar{
       background: linear-gradient(90deg, var(--blue), var(--blueDark));
       color:#fff;
       padding:10px 16px;
       font-size:12px;
-      letter-spacing:.2px;
     }
     .topbar .wrap{
       max-width:980px;
       margin:0 auto;
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:10px;
+      align-items:center;
     }
     .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      background: rgba(255,255,255,.15);
+      border:1px solid rgba(255,255,255,.25);
       padding:6px 10px;
       border-radius:999px;
-      background: rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.22);
-      font-weight:650;
-      white-space:nowrap;
+      font-weight:700;
     }
 
     header{
-      padding:18px 16px 8px;
-      max-width: 980px;
-      margin: 0 auto;
+      max-width:980px;
+      margin:0 auto;
+      padding:20px 16px 10px;
     }
-    .title{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
+    h1{
+      margin:10px 0 0;
+      font-size:20px;
     }
-    .title h1{
-      margin:0;
-      font-size:18px;
-      line-height:1.25;
-    }
-    .title p{
-      margin:8px 0 0;
+    p{
+      margin:6px 0 0;
       color:var(--muted);
       font-size:13px;
     }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background: rgba(0,102,255,.10);
-      border:1px solid rgba(0,102,255,.18);
-      color:var(--text);
-      font-size:12px;
-      font-weight:700;
-      white-space:nowrap;
-    }
 
     main{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 10px 16px 28px;
+      max-width:980px;
+      margin:0 auto;
+      padding:12px 16px 28px;
     }
 
-    /* Tip card */
-    .note{
+    /* Tip */
+    .tip{
       background: var(--card);
       border:1px solid var(--border);
       border-radius: var(--radius);
-      padding:14px 14px;
+      padding:14px;
       box-shadow: var(--shadow);
-    }
-    .tip{
-      border-color: rgba(0,102,255,.18);
-      background:
-        radial-gradient(700px 140px at 12% 0%, rgba(0,168,255,.14), transparent 60%),
-        var(--card);
     }
     .tipbar{
       display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
       gap:12px;
+      align-items:flex-start;
       flex-wrap:wrap;
     }
-    .tiptext{
-      min-width: 240px;
-      flex: 1;
-      color: var(--text);
-    }
-    .tiptext b{
-      color: var(--blueDark);
-    }
+    .tiptext{flex:1}
     .tipbtn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius: 12px;
-      border:1px solid rgba(0,102,255,.22);
-      background: rgba(0,102,255,.10);
-      color: var(--blueDark);
-      font-weight:750;
+      background: var(--blue);
+      color:#fff;
+      border:none;
+      border-radius:12px;
+      padding:10px 14px;
+      font-weight:700;
       cursor:pointer;
       box-shadow: var(--shadow);
-      transition: transform .08s ease, background .12s ease, border-color .12s ease;
-      -webkit-tap-highlight-color: transparent;
     }
-    .tipbtn:hover{
-      background: rgba(0,102,255,.14);
-      border-color: rgba(0,102,255,.28);
-    }
-    .tipbtn:active{ transform: scale(.99); }
+    .tipbtn:hover{ background: var(--blueDark); }
+    .tipbtn:active{ transform:scale(.98); }
 
-    /* Grid dei tasti */
+    /* Griglia */
     .grid{
       display:grid;
-      grid-template-columns: 1fr;
-      gap:12px;
-      margin-top:14px;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:16px;
     }
-    @media (min-width: 520px){
-      .grid{ grid-template-columns: 1fr 1fr; }
-    }
-    @media (min-width: 900px){
-      .grid{ grid-template-columns: 1fr 1fr 1fr; }
-    }
+    @media (min-width:520px){ .grid{grid-template-columns:1fr 1fr;} }
+    @media (min-width:900px){ .grid{grid-template-columns:1fr 1fr 1fr;} }
 
     a.btn{
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:12px;
-      padding:14px 14px;
+      align-items:center;
+      padding:16px;
       border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(0,102,255,.06), transparent 32%), var(--btn);
-      border:1px solid var(--border);
-      color:var(--text);
+      background: var(--blue);
+      color:#fff;
       text-decoration:none;
       box-shadow: var(--shadow);
-      min-height:60px;
-      transition: transform .08s ease, background .12s ease, border-color .12s ease;
-      -webkit-tap-highlight-color: transparent;
+      transition:.12s;
     }
-    a.btn:hover{
-      background: linear-gradient(180deg, rgba(0,102,255,.09), transparent 32%), var(--btnHover);
-      border-color: rgba(0,102,255,.18);
-    }
-    a.btn:active{ transform: scale(.99); }
+    a.btn:hover{ background: var(--blueDark); }
+    a.btn:active{ transform:scale(.98); }
 
-    .left{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      min-width:0;
-    }
     .label{
       font-weight:800;
       font-size:14px;
-      letter-spacing:.1px;
-      color: var(--blueDark);
     }
     .sub{
-      color:var(--muted);
       font-size:12px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      opacity:.85;
     }
     .icon{
+      background: rgba(255,255,255,.18);
+      border-radius:12px;
       width:38px;
       height:38px;
-      border-radius:14px;
-      background: rgba(0,102,255,.10);
-      border:1px solid rgba(0,102,255,.18);
       display:grid;
       place-items:center;
-      flex: 0 0 auto;
       font-size:16px;
     }
 
     footer{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 16px 22px;
-      color: var(--muted);
-      font-size: 12px;
+      max-width:980px;
+      margin:0 auto;
+      padding:16px;
+      font-size:12px;
+      color:var(--muted);
     }
-    .footnote{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      padding-top:8px;
-    }
-    .link{
-      color: var(--blue);
-      text-decoration:none;
-      font-weight:700;
-    }
-    .link:hover{ text-decoration:underline; }
   </style>
 </head>
 
@@ -252,165 +165,45 @@
   </div>
 
   <header>
-    <div class="title">
-      <div>
-        <div class="badge">Il Perfetto Venditore</div>
-        <h1 style="margin-top:10px;">Chiedi al venditore esperto</h1>
-        <p>Scegli una sezione per aprire l'argomento.</p>
-      </div>
-    </div>
+    <h1>Chiedi al venditore esperto</h1>
+    <p>Scegli una sezione per aprire l'argomento.</p>
   </header>
 
   <main>
-    <!-- Tip con bottone -->
-    <div class="note tip">
+    <div class="tip">
       <div class="tipbar">
         <div class="tiptext">
           <b>Tip della settimana:</b>
-          <span id="tipText">Caricamento tip...</span>
+          <span id="tipText"></span>
         </div>
-        <button class="tipbtn" id="tipBtn" type="button">🔄 Cambia tip</button>
+        <button class="tipbtn" id="tipBtn">🔄 Cambia tip</button>
       </div>
     </div>
 
     <div class="grid">
-
-      <a class="btn" href="argomenti/presentazione-wow.html">
-        <div class="left">
-          <div class="label">Presentazione WOW</div>
-          <div class="sub">Impatto, apertura e coinvolgimento</div>
-        </div>
-        <div class="icon">✨</div>
-      </a>
-
-      <a class="btn" href="argomenti/carta-decathlon.html">
-        <div class="left">
-          <div class="label">Carta Decathlon</div>
-          <div class="sub">Vantaggi, attivazione, uso in cassa</div>
-        </div>
-        <div class="icon">💳</div>
-      </a>
-
-      <a class="btn" href="argomenti/second-hand.html">
-        <div class="left">
-          <div class="label">Second Hand</div>
-          <div class="sub">Valutazione, proposta, logica circolare</div>
-        </div>
-        <div class="icon">♻️</div>
-      </a>
-
-      <a class="btn" href="argomenti/garanzia-e-assicurazione.html">
-        <div class="left">
-          <div class="label">Garanzia e Assicurazione</div>
-          <div class="sub">Coperture, spiegazione semplice, esempi</div>
-        </div>
-        <div class="icon">🛡️</div>
-      </a>
-
-      <a class="btn" href="argomenti/fatturazione.html">
-        <div class="left">
-          <div class="label">Fatturazione</div>
-          <div class="sub">Dati, flusso, controlli rapidi</div>
-        </div>
-        <div class="icon">🧾</div>
-      </a>
-
-      <a class="btn" href="argomenti/ordine-plus.html">
-        <div class="left">
-          <div class="label">Ordine PLUS</div>
-          <div class="sub">Ordine, tracking, gestione cliente</div>
-        </div>
-        <div class="icon">📦</div>
-      </a>
-
-      <a class="btn" href="argomenti/intermag.html">
-        <div class="left">
-          <div class="label">Intermag</div>
-          <div class="sub">Ricerca, disponibilità, trasferimenti</div>
-        </div>
-        <div class="icon">🔎</div>
-      </a>
-
-      <a class="btn" href="argomenti/b2b.html">
-        <div class="left">
-          <div class="label">B2B</div>
-          <div class="sub">Clienti business, bisogni, proposta</div>
-        </div>
-        <div class="icon">🏢</div>
-      </a>
-
-      <a class="btn" href="argomenti/incasso.html">
-        <div class="left">
-          <div class="label">Incasso</div>
-          <div class="sub">Pagamenti, controlli, best practice</div>
-        </div>
-        <div class="icon">💶</div>
-      </a>
-
-      <a class="btn" href="argomenti/assistenza.html">
-        <div class="left">
-          <div class="label">Assistenza</div>
-          <div class="sub">Supporto, gestione casi, tono e soluzione</div>
-        </div>
-        <div class="icon">🧑‍🔧</div>
-      </a>
-
+      <a class="btn" href="#"><div><div class="label">Presentazione WOW</div><div class="sub">Impatto e coinvolgimento</div></div><div class="icon">✨</div></a>
+      <a class="btn" href="#"><div><div class="label">Carta Decathlon</div><div class="sub">Vantaggi e utilizzo</div></div><div class="icon">💳</div></a>
+      <a class="btn" href="#"><div><div class="label">Second Hand</div><div class="sub">Economia circolare</div></div><div class="icon">♻️</div></a>
+      <a class="btn" href="#"><div><div class="label">Garanzia</div><div class="sub">Coperture e spiegazione</div></div><div class="icon">🛡️</div></a>
+      <a class="btn" href="#"><div><div class="label">Fatturazione</div><div class="sub">Dati e controlli</div></div><div class="icon">🧾</div></a>
+      <a class="btn" href="#"><div><div class="label">Assistenza</div><div class="sub">Gestione cliente</div></div><div class="icon">🧑‍🔧</div></a>
     </div>
   </main>
 
-  <footer>
-    <div class="footnote">
-      <div>© Hub Formazioni Vendita</div>
-      <a class="link" href="index.html">Torna su</a>
-    </div>
-  </footer>
+  <footer>© Hub Formazioni Vendita</footer>
 
   <script>
-    const TIPS = [
-      "Per sapere se una certa marca AMI rientra nella nostra politica second hand prova a simulare un contratto.",
-      "Quando proponi la Carta, parti dal bisogno: 'ti capita di tornare spesso per lo stesso sport?'",
-      "In garanzia: usa esempi concreti e una frase breve, poi verifica: 'ha senso fin qui?'",
-      "In incasso: prima conferma importo e metodo, poi fai un check visivo rapido su articolo e scontrino.",
-      "Ordine PLUS: spiega i passi in 3 punti (ordine → tracking → ritiro/consegna).",
-      "Intermag: prima cerca disponibilità, poi proponi l'alternativa (taglia/colore) per non perdere tempo.",
-      "Assistenza: ripeti il problema con le parole del cliente: abbassa subito la tensione.",
-      "Second Hand: fai una domanda sullo stato d'uso prima di parlare di valutazione.",
-      "B2B: chiarisci subito 'uso personale o aziendale?' per indirizzare fattura e condizioni.",
-      "Presentazione WOW: inizia con una domanda semplice e specifica: 'che sport fai di solito?'"
+    const TIPS=[
+      "Parti sempre dal bisogno del cliente, non dal prodotto.",
+      "Usa esempi concreti: aiutano la comprensione.",
+      "Ripeti il problema con le parole del cliente.",
+      "Proponi un solo vantaggio chiave alla volta."
     ];
-
-    const tipEl = document.getElementById("tipText");
-    const btnEl = document.getElementById("tipBtn");
-    const STORAGE_KEY = "hub_tip_last";
-
-    function pickNewTip(exclude) {
-      if (TIPS.length === 0) return "";
-      if (TIPS.length === 1) return TIPS[0];
-
-      let tip = exclude;
-      while (tip === exclude) {
-        tip = TIPS[Math.floor(Math.random() * TIPS.length)];
-      }
-      return tip;
-    }
-
-    function setTip(tip) {
-      tipEl.textContent = " " + tip;
-      try { localStorage.setItem(STORAGE_KEY, tip); } catch(e) {}
-    }
-
-    (function initTip(){
-      let saved = null;
-      try { saved = localStorage.getItem(STORAGE_KEY); } catch(e) {}
-      const first = saved && TIPS.includes(saved) ? saved : pickNewTip(null);
-      setTip(first);
-    })();
-
-    btnEl.addEventListener("click", () => {
-      const current = tipEl.textContent.trim();
-      const next = pickNewTip(current);
-      setTip(next);
-    });
+    const el=document.getElementById("tipText");
+    const btn=document.getElementById("tipBtn");
+    function rnd(){return TIPS[Math.floor(Math.random()*TIPS.length)]}
+    el.textContent=" "+rnd();
+    btn.onclick=()=>el.textContent=" "+rnd();
   </script>
 </body>
 </html>
