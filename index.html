@@ -7,16 +7,17 @@
 
   <style>
     :root{
-      /* Palette più vicina a Decathlon */
-      --decathlon-blue:#0070c9;      /* blu brand */
-      --decathlon-blue-dark:#0057a8; /* hover/pressione */
-      --decathlon-accent:#00a6ff;    /* accento chiaro */
-      --ring: rgba(0,112,201,.25);
+      /* Colori (blu preso dal tuo logo) */
+      --decathlon-blue:#212A9A;
+      --decathlon-blue-dark:#1b227f;  /* più scuro per bordi/contrasto */
+      --decathlon-accent:#3a46d1;     /* accento leggero */
 
-      --bg:#f2f7ff;        /* sfondo leggermente blu */
+      --ring: rgba(33,42,154,.26);
+
+      --bg:#f1f3ff;
       --card:#ffffff;
       --text:#0b1220;
-      --muted:#52617a;
+      --muted:#4f5b78;
 
       --shadow:0 10px 30px rgba(11,18,32,.08);
       --radius:16px;
@@ -38,7 +39,7 @@
 
     header{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       justify-content:space-between;
       gap: 12px;
       padding: 16px 18px;
@@ -64,6 +65,7 @@
       justify-content:center;
       overflow:hidden;
       background: transparent;
+      flex: 0 0 auto;
     }
     .logoBox img{
       width: 100%;
@@ -86,25 +88,62 @@
     .search{
       flex:1;
       display:flex;
-      justify-content:flex-end;
+      flex-direction:column;
+      align-items:flex-end;
+    }
+
+    .searchLabel{
+      width: min(420px, 100%);
+      display:flex;
+      align-items:center;
+      gap: 8px;
+      margin: 0 0 6px;
+      color: rgba(11,18,32,.58);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .2px;
+      user-select: none;
+    }
+
+    .searchIcon{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(11,18,32,.55);
     }
 
     .search input{
       width: min(420px, 100%);
       padding: 12px 14px;
       border-radius: 12px;
-      border: 1px solid rgba(2,6,23,.12);
+      border: 1px solid rgba(2,6,23,.14);
       outline:none;
       box-shadow: 0 0 0 0 var(--ring);
       transition: box-shadow .15s ease, border-color .15s ease;
       font-size: 14px;
+      background: #fff;
     }
     .search input:focus{
-      border-color: rgba(0,112,201,.55);
+      border-color: rgba(33,42,154,.55);
       box-shadow: 0 0 0 4px var(--ring);
     }
 
-    /* MAIN: una colonna (note rimosse) */
+    @media (max-width: 860px){
+      header{
+        flex-direction:column;
+        align-items:stretch;
+      }
+      .brand{ min-width:auto; }
+      .search{
+        align-items:stretch;
+      }
+      .searchLabel,
+      .search input{
+        width: 100%;
+        max-width: 520px;
+      }
+    }
+
     main{
       margin-top: 18px;
       display:block;
@@ -150,17 +189,17 @@
       background: var(--decathlon-blue);
       color:#fff;
       border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 12px 24px rgba(0,112,201,.18);
+      box-shadow: 0 12px 24px rgba(33,42,154,.16);
 
-      transition: transform .08s ease, filter .15s ease, box-shadow .15s ease, background .15s ease;
       cursor:pointer;
+      user-select:none;
     }
-    .sectionBtn:hover{
-      filter: brightness(1.04);
+
+    /* Mobile-first: niente hover (su telefono è inutile). */
+    .sectionBtn:active{
+      transform: translateY(1px);
       background: var(--decathlon-blue-dark);
-      box-shadow: 0 14px 28px rgba(0,112,201,.22);
     }
-    .sectionBtn:active{ transform: translateY(1px); }
 
     .left{
       display:flex;
@@ -194,8 +233,8 @@
     .tipBox{
       border-radius: 14px;
       padding: 12px 12px;
-      border: 1px solid rgba(0,112,201,.16);
-      background: linear-gradient(180deg, rgba(0,166,255,.08), rgba(0,112,201,.06));
+      border: 1px solid rgba(33,42,154,.14);
+      background: linear-gradient(180deg, rgba(58,70,209,.10), rgba(33,42,154,.06));
     }
 
     .tipText{
@@ -226,11 +265,11 @@
     .btn:active{ transform: translateY(1px); }
 
     .btnSoft{
-      background: rgba(0,112,201,.10);
+      background: rgba(33,42,154,.10);
       color: var(--decathlon-blue-dark);
-      border: 1px solid rgba(0,112,201,.20);
+      border: 1px solid rgba(33,42,154,.20);
     }
-    .btnSoft:hover{ filter: brightness(1.03); }
+    .btnSoft:active{ filter: brightness(0.98); }
 
     footer{
       margin-top: 14px;
@@ -255,6 +294,16 @@
       </div>
 
       <div class="search">
+        <div class="searchLabel" aria-hidden="true">
+          <span class="searchIcon">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M16.3 16.3 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="searchLabelText">Cerca</span>
+        </div>
+
         <input id="searchInput" type="search" placeholder="Cerca una sezione (es. garanzia, incasso…)" />
       </div>
     </header>
@@ -264,23 +313,24 @@
         <div class="gridTitle">Sezioni</div>
 
         <div class="grid" id="sectionsGrid">
+          <!-- Ordine come richiesto -->
           <button class="sectionBtn" data-name="presentazione wow" onclick="goTo('presentazione-wow.html')">
-            <span class="left"><span class="emoji">🎤</span><span class="label">Presentazione WOW</span></span>
+            <span class="left"><span class="emoji">😁</span><span class="label">Presentazione WOW</span></span>
             <span class="arrow">›</span>
           </button>
 
-          <button class="sectionBtn" data-name="carta decathlon" onclick="goTo('carta-decathlon.html')">
-            <span class="left"><span class="emoji">💳</span><span class="label">Carta Decathlon</span></span>
+          <button class="sectionBtn" data-name="carta decathlon carta fedelta fidelity" onclick="goTo('carta-decathlon.html')">
+            <span class="left"><span class="emoji">🎫</span><span class="label">Carta Decathlon</span></span>
             <span class="arrow">›</span>
           </button>
 
-          <button class="sectionBtn" data-name="second hand" onclick="goTo('second-hand.html')">
-            <span class="left"><span class="emoji">♻️</span><span class="label">Second Hand</span></span>
+          <button class="sectionBtn" data-name="ordine plus ordine online carrello" onclick="goTo('ordine-plus.html')">
+            <span class="left"><span class="emoji">🛒</span><span class="label">Ordine PLUS</span></span>
             <span class="arrow">›</span>
           </button>
 
-          <button class="sectionBtn" data-name="garanzia e assicurazione garanzia assicurazione" onclick="goTo('garanzia-assicurazione.html')">
-            <span class="left"><span class="emoji">🛡️</span><span class="label">Garanzia e Assicurazione</span></span>
+          <button class="sectionBtn" data-name="intermag consegna magazzino camion" onclick="goTo('intermag.html')">
+            <span class="left"><span class="emoji">🚚</span><span class="label">Intermag</span></span>
             <span class="arrow">›</span>
           </button>
 
@@ -289,28 +339,28 @@
             <span class="arrow">›</span>
           </button>
 
-          <button class="sectionBtn" data-name="ordine plus plus" onclick="goTo('ordine-plus.html')">
-            <span class="left"><span class="emoji">➕</span><span class="label">Ordine PLUS</span></span>
+          <button class="sectionBtn" data-name="b2b aziende business accordi" onclick="goTo('b2b.html')">
+            <span class="left"><span class="emoji">🤝</span><span class="label">B2B</span></span>
             <span class="arrow">›</span>
           </button>
 
-          <button class="sectionBtn" data-name="intermag" onclick="goTo('intermag.html')">
-            <span class="left"><span class="emoji">🧭</span><span class="label">Intermag</span></span>
+          <button class="sectionBtn" data-name="garanzia e assicurazione garanzia assicurazione" onclick="goTo('garanzia-assicurazione.html')">
+            <span class="left"><span class="emoji">🛡️</span><span class="label">Garanzia e Assicurazione</span></span>
             <span class="arrow">›</span>
           </button>
 
-          <button class="sectionBtn" data-name="b2b" onclick="goTo('b2b.html')">
-            <span class="left"><span class="emoji">🏢</span><span class="label">B2B</span></span>
-            <span class="arrow">›</span>
-          </button>
-
-          <button class="sectionBtn" data-name="incasso cassa" onclick="goTo('incasso.html')">
-            <span class="left"><span class="emoji">💰</span><span class="label">Incasso</span></span>
+          <button class="sectionBtn" data-name="incasso cassa pagamenti" onclick="goTo('incasso.html')">
+            <span class="left"><span class="emoji">🏧</span><span class="label">Incasso</span></span>
             <span class="arrow">›</span>
           </button>
 
           <button class="sectionBtn" data-name="assistenza aiuto" onclick="goTo('assistenza.html')">
             <span class="left"><span class="emoji">🧰</span><span class="label">Assistenza</span></span>
+            <span class="arrow">›</span>
+          </button>
+
+          <button class="sectionBtn" data-name="second hand usato reso" onclick="goTo('second-hand.html')">
+            <span class="left"><span class="emoji">♻️</span><span class="label">Second Hand</span></span>
             <span class="arrow">›</span>
           </button>
         </div>
