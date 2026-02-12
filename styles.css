@@ -1,0 +1,244 @@
+:root{
+  /* Colori Decathlon */
+  --decathlon-blue:#212A9A;
+  --decathlon-blue-dark:#1b227f;
+  --decathlon-accent:#3a46d1;
+
+  --ring: rgba(33,42,154,.26);
+
+  --bg:#f1f3ff;
+  --card:#ffffff;
+  --text:#0b1220;
+  --muted:#4f5b78;
+
+  --shadow:0 10px 30px rgba(11,18,32,.08);
+  --radius:16px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 55%, #ffffff 100%);
+  color: var(--text);
+}
+
+/* Layout base */
+.wrap{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 16px 36px;
+}
+
+/* Header */
+header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(2,6,23,.06);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  min-width: 240px;
+}
+
+.logoBox{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.logoBox img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+/* Titoli */
+h1{
+  margin:0;
+  font-size: 17px;
+  line-height:1.2;
+}
+
+.subtitle{
+  margin:2px 0 0;
+  font-size:12.5px;
+  color: var(--muted);
+}
+
+/* Titolo grande delle sottopagine */
+.sectionTitle{
+  margin:0;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: .3px;
+}
+
+/* Search */
+.search{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+}
+
+.searchLabel{
+  width: min(420px, 100%);
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  margin: 0 0 6px;
+  color: rgba(11,18,32,.58);
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.search input{
+  width: min(420px, 100%);
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(2,6,23,.14);
+  outline:none;
+  font-size: 14px;
+}
+
+.search input:focus{
+  border-color: rgba(33,42,154,.55);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* Card */
+.card{
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(2,6,23,.06);
+  padding: 16px;
+  margin-top:18px;
+}
+
+.gridTitle{
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+/* Griglie */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.grid.single{
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 420px;
+}
+
+/* Bottoni sezione */
+.sectionBtn{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  width:100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--decathlon-blue);
+  color:#fff;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 12px 24px rgba(33,42,154,.16);
+  cursor:pointer;
+}
+
+.sectionBtn:active{
+  transform: translateY(1px);
+  background: var(--decathlon-blue-dark);
+}
+
+.left{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.emoji{
+  font-size: 19px;
+}
+
+.label{
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.arrow{
+  font-size: 18px;
+  font-weight: 900;
+}
+
+/* Bottoni numerati sottopagine */
+.numberBtn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:70px;
+  font-size: 26px;
+  font-weight: 900;
+  border-radius: 16px;
+  background: var(--decathlon-blue);
+  color:#fff;
+  border:none;
+  box-shadow: 0 12px 24px rgba(33,42,154,.16);
+  cursor:pointer;
+}
+
+.numberBtn:active{
+  transform: translateY(1px);
+  background: var(--decathlon-blue-dark);
+}
+
+/* Footer */
+footer{
+  margin-top: 20px;
+  text-align:center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 860px){
+  header{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .search{
+    align-items:stretch;
+  }
+
+  .search input{
+    width:100%;
+  }
+}
+
+@media (max-width: 520px){
+  .grid{
+    grid-template-columns: 1fr;
+  }
+}
