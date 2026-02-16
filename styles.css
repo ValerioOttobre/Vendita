@@ -285,10 +285,10 @@ footer{
   align-items: center;
   justify-content: center;
 
-  text-decoration: none;      /* toglie la sottolineatura */
-  color: inherit;             /* stesso colore del bottone */
+  text-decoration: none;   /* niente sottolineatura */
+  color: #ffffff;          /* TESTO BIANCO come gli altri */
   cursor: pointer;
 
-  pointer-events: auto;       /* garantisce il click */
-  z-index: 2;                 /* sta sopra eventuali overlay */
+  pointer-events: auto;
+  z-index: 2;
 }
