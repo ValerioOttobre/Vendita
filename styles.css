@@ -279,3 +279,16 @@ footer{
   transform: translateY(1px);
   background: var(--decathlon-blue-dark);
 }
+
+.linkBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;      /* toglie la sottolineatura */
+  color: inherit;             /* stesso colore del bottone */
+  cursor: pointer;
+
+  pointer-events: auto;       /* garantisce il click */
+  z-index: 2;                 /* sta sopra eventuali overlay */
+}
