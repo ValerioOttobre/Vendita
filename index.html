@@ -13,74 +13,109 @@
 
 <div class="wrap">
 
-<header class="header">
-  <div class="brand">
-    <img src="decathlon-logo.png" alt="Decathlon" class="logo">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">
+      <img src="decathlon-logo.png" alt="Decathlon" class="logo">
 
-    <div class="titles">
-      <h1>Il Perfetto Venditore</h1>
-      <p class="subtitle">Chiedi ai Trainer</p>
+      <div class="titles">
+        <h1>Il Perfetto Venditore</h1>
+        <p class="subtitle">Chiedi ai Trainer</p>
+      </div>
     </div>
-  </div>
 
-<button class="searchToggle" aria-label="Cerca">🔍</button>
+    <!-- MICRO TASTO CERCA -->
+    <button class="searchBtn" aria-label="Cerca">🔍</button>
+  </header>
 
-<input
-  id="searchInput"
-  class="searchInput hidden"
-  type="search"
-  placeholder="Cerca una sezione…"
-/>
-</header>
+  <!-- INPUT CERCA (NASCOSTO DI DEFAULT) -->
+  <input
+    id="searchInput"
+    class="searchHidden"
+    type="search"
+    placeholder="Cerca una sezione…"
+  >
 
-<main class="card">
-  <h2>Sezioni</h2>
+  <!-- CONTENUTO -->
+  <main class="card">
 
-  <div class="grid" id="sectionsGrid">
+    <div class="grid" id="sectionsGrid">
 
-    <button class="sectionBtn" data-name="presentazione wow"
-      onclick="goTo('presentazione-wow/presentazione-wow.html')">😁 Presentazione WOW</button>
+      <button class="sectionBtn" data-name="presentazione wow"
+        onclick="goTo('presentazione-wow/presentazione-wow.html')">
+        😁 Presentazione WOW
+      </button>
 
-    <button class="sectionBtn" data-name="carta decathlon"
-      onclick="goTo('carta-decathlon/carta-decathlon.html')">🎫 Carta Decathlon</button>
+      <button class="sectionBtn" data-name="carta decathlon"
+        onclick="goTo('carta-decathlon/carta-decathlon.html')">
+        🎫 Carta Decathlon
+      </button>
 
-    <button class="sectionBtn" data-name="ordine plus"
-      onclick="goTo('ordine-plus/ordine-plus.html')">📦 Ordine PLUS</button>
+      <button class="sectionBtn" data-name="ordine plus"
+        onclick="goTo('ordine-plus/ordine-plus.html')">
+        📦 Ordine PLUS
+      </button>
 
-    <button class="sectionBtn" data-name="intermag"
-      onclick="goTo('intermag/intermag.html')">🚚 Intermag</button>
+      <button class="sectionBtn" data-name="intermag"
+        onclick="goTo('intermag/intermag.html')">
+        🚚 Intermag
+      </button>
 
-    <button class="sectionBtn" data-name="fatturazione"
-      onclick="goTo('fatturazione/fatturazione.html')">🧾 Fatturazione</button>
+      <button class="sectionBtn" data-name="fatturazione"
+        onclick="goTo('fatturazione/fatturazione.html')">
+        🧾 Fatturazione
+      </button>
 
-    <button class="sectionBtn" data-name="b2b club aziende"
-      onclick="goTo('b2b/b2b.html')">🤝 B2B</button>
+      <button class="sectionBtn" data-name="b2b club aziende"
+        onclick="goTo('b2b/b2b.html')">
+        🤝 B2B
+      </button>
 
-    <button class="sectionBtn" data-name="garanzia assicurazione"
-      onclick="goTo('garanzia-assicurazione/garanzia-assicurazione.html')">🛡️ Garanzia</button>
+      <button class="sectionBtn" data-name="garanzia assicurazione"
+        onclick="goTo('garanzia-assicurazione/garanzia-assicurazione.html')">
+        🛡️ Garanzia
+      </button>
 
-    <button class="sectionBtn" data-name="incasso cassa"
-      onclick="goTo('incasso/incasso.html')">🏧 Incasso</button>
+      <button class="sectionBtn" data-name="incasso cassa"
+        onclick="goTo('incasso/incasso.html')">
+        🏧 Incasso
+      </button>
 
-    <button class="sectionBtn" data-name="assistenza"
-      onclick="goTo('assistenza/assistenza.html')">🧰 Assistenza</button>
+      <button class="sectionBtn" data-name="assistenza"
+        onclick="goTo('assistenza/assistenza.html')">
+        🧰 Assistenza
+      </button>
 
-    <button class="sectionBtn" data-name="second hand usato"
-      onclick="goTo('second-hand/second-hand.html')">♻️ Second Hand</button>
+      <button class="sectionBtn" data-name="second hand usato"
+        onclick="goTo('second-hand/second-hand.html')">
+        ♻️ Second Hand
+      </button>
 
-  </div>
-</main>
+    </div>
+  </main>
 
-<footer>© Il Perfetto Venditore</footer>
+  <footer>© Il Perfetto Venditore</footer>
 
 </div>
 
+<!-- SCRIPT UNICO -->
 <script>
+/* Navigazione */
 function goTo(page){
   window.location.href = page;
 }
 
+/* Toggle ricerca */
+const searchBtn = document.querySelector(".searchBtn");
 const searchInput = document.getElementById("searchInput");
+
+searchBtn.addEventListener("click", () => {
+  const hidden = searchInput.classList.toggle("searchHidden");
+  searchBtn.textContent = hidden ? "🔍" : "❌";
+  if (!hidden) searchInput.focus();
+});
+
+/* Filtro sezioni */
 const buttons = document.querySelectorAll(".sectionBtn");
 
 searchInput.addEventListener("input", () => {
@@ -94,26 +129,3 @@ searchInput.addEventListener("input", () => {
 
 </body>
 </html>
-
-<script>
-const searchToggle = document.querySelector(".searchToggle");
-const searchInput = document.getElementById("searchInput");
-
-searchToggle.addEventListener("click", () => {
-  searchInput.classList.toggle("hidden");
-  if (!searchInput.classList.contains("hidden")) {
-    searchInput.focus();
-  }
-});
-</script>
-
-<script>
-const searchBtn = document.querySelector(".searchBtn");
-const searchInput = document.getElementById("searchInput");
-
-searchBtn.addEventListener("click", () => {
-  const isHidden = searchInput.classList.toggle("searchHidden");
-  searchBtn.textContent = isHidden ? "🔍" : "❌";
-  if (!isHidden) searchInput.focus();
-});
-</script>
