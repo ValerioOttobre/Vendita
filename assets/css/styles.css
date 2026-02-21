@@ -217,3 +217,48 @@ main.card > h2 {
     text-align: center;
   }
 }
+
+/* =========================
+   SEARCH MOBILE-FIRST
+   ========================= */
+
+.searchToggle{
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.searchInput{
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px 16px;
+  font-size: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+.hidden{
+  display: none;
+}
+
+/* HEADER MOBILE */
+@media (max-width: 768px){
+
+  .header{
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .brand{
+    flex: 1;
+  }
+
+  .titles h1{
+    font-size: 18px;
+  }
+
+  .subtitle{
+    font-size: 12px;
+  }
+}
