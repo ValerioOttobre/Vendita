@@ -94,3 +94,15 @@ searchInput.addEventListener("input", () => {
 
 </body>
 </html>
+
+<script>
+const searchToggle = document.querySelector(".searchToggle");
+const searchInput = document.getElementById("searchInput");
+
+searchToggle.addEventListener("click", () => {
+  searchInput.classList.toggle("hidden");
+  if (!searchInput.classList.contains("hidden")) {
+    searchInput.focus();
+  }
+});
+</script>
