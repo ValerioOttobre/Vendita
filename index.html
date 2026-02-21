@@ -21,6 +21,7 @@
     }
 
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -29,9 +30,9 @@
     }
 
     .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 16px 36px;
+      max-width:980px;
+      margin:0 auto;
+      padding:28px 16px 36px;
     }
 
     header{
@@ -57,6 +58,7 @@
       border-radius:12px;
       overflow:hidden;
     }
+
     .logoBox img{
       width:100%;
       height:100%;
@@ -67,6 +69,7 @@
       margin:0;
       font-size:17px;
     }
+
     .subtitle{
       margin:2px 0 0;
       font-size:12.5px;
@@ -97,6 +100,7 @@
       border:1px solid rgba(2,6,23,.14);
       font-size:14px;
     }
+
     .search input:focus{
       outline:none;
       border-color:rgba(33,42,154,.55);
@@ -124,6 +128,7 @@
       grid-template-columns:repeat(2,1fr);
       gap:12px;
     }
+
     @media(max-width:520px){
       .grid{ grid-template-columns:1fr; }
     }
@@ -140,6 +145,7 @@
       cursor:pointer;
       font-weight:900;
     }
+
     .sectionBtn:active{
       transform:translateY(1px);
       background:var(--decathlon-blue-dark);
@@ -150,6 +156,7 @@
       gap:10px;
       align-items:center;
     }
+
     .emoji{ font-size:19px; }
     .arrow{ font-size:18px; }
 
@@ -188,53 +195,43 @@
 
   <div class="grid" id="sectionsGrid">
 
-    <button class="sectionBtn" data-name="presentazione wow"
-      onclick="goTo('presentazione-wow/presentazione-wow.html')">
+    <button class="sectionBtn" data-name="presentazione wow" onclick="goTo('presentazione-wow/presentazione-wow.html')">
       <span class="left"><span class="emoji">😁</span>Presentazione WOW</span><span class="arrow">›</span>
     </button>
 
-    <button class="sectionBtn" data-name="carta decathlon"
-      onclick="goTo('carta-decathlon/carta-decathlon.html')">
+    <button class="sectionBtn" data-name="carta decathlon" onclick="goTo('carta-decathlon/carta-decathlon.html')">
       <span class="left"><span class="emoji">🎫</span>Carta Decathlon</span><span class="arrow">›</span>
     </button>
 
-    <button class="sectionBtn" data-name="ordine plus"
-      onclick="goTo('ordine-plus/ordine-plus.html')">
+    <button class="sectionBtn" data-name="ordine plus" onclick="goTo('ordine-plus/ordine-plus.html')">
       <span class="left"><span class="emoji">📦</span>Ordine PLUS</span><span class="arrow">›</span>
     </button>
 
-    <button class="sectionBtn" data-name="intermag"
-      onclick="goTo('intermag/intermag.html')">
+    <button class="sectionBtn" data-name="intermag" onclick="goTo('intermag/intermag.html')">
       <span class="left"><span class="emoji">🚚</span>Intermag</span><span class="arrow">›</span>
     </button>
 
-    <button class="sectionBtn" data-name="fatturazione"
-      onclick="goTo('fatturazione/fatturazione.html')">
+    <button class="sectionBtn" data-name="fatturazione" onclick="goTo('fatturazione/fatturazione.html')">
       <span class="left"><span class="emoji">🧾</span>Fatturazione</span><span class="arrow">›</span>
     </button>
 
-    <button class="sectionBtn" data-name="b2b club aziende"
-      onclick="goTo('b2b/b2b.html')">
+    <button class="sectionBtn" data-name="b2b club aziende" onclick="goTo('b2b/b2b.html')">
       <span class="left"><span class="emoji">🤝</span>B2B</span><span class="arrow">›</span>
     </button>
 
-    <button class="sectionBtn" data-name="garanzia assicurazione"
-      onclick="goTo('garanzia-assicurazione/garanzia-assicurazione.html')">
+    <button class="sectionBtn" data-name="garanzia assicurazione" onclick="goTo('garanzia-assicurazione/garanzia-assicurazione.html')">
       <span class="left"><span class="emoji">🛡️</span>Garanzia e Assicurazione</span><span class="arrow">›</span>
     </button>
 
-    <button class="sectionBtn" data-name="incasso cassa"
-      onclick="goTo('incasso/incasso.html')">
+    <button class="sectionBtn" data-name="incasso cassa" onclick="goTo('incasso/incasso.html')">
       <span class="left"><span class="emoji">🏧</span>Incasso</span><span class="arrow">›</span>
     </button>
 
-    <button class="sectionBtn" data-name="assistenza"
-      onclick="goTo('assistenza/assistenza.html')">
+    <button class="sectionBtn" data-name="assistenza" onclick="goTo('assistenza/assistenza.html')">
       <span class="left"><span class="emoji">🧰</span>Assistenza</span><span class="arrow">›</span>
     </button>
 
-    <button class="sectionBtn" data-name="second hand usato"
-      onclick="goTo('second-hand/second-hand.html')">
+    <button class="sectionBtn" data-name="second hand usato" onclick="goTo('second-hand/second-hand.html')">
       <span class="left"><span class="emoji">♻️</span>Second Hand</span><span class="arrow">›</span>
     </button>
 
@@ -247,16 +244,18 @@
 </div>
 
 <script>
-function goTo(page){ window.location.href = page; }
+function goTo(page){
+  window.location.href = page;
+}
 
 const searchInput = document.getElementById("searchInput");
 const buttons = document.querySelectorAll(".sectionBtn");
 
 searchInput.addEventListener("input", () => {
   const q = searchInput.value.toLowerCase();
-  buttons.forEach(b => {
-    const text = (b.dataset.name + b.innerText).toLowerCase();
-    b.style.display = text.includes(q) ? "" : "none";
+  buttons.forEach(btn => {
+    const text = (btn.dataset.name + btn.innerText).toLowerCase();
+    btn.style.display = text.includes(q) ? "" : "none";
   });
 });
 </script>
