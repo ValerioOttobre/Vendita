@@ -189,16 +189,14 @@ main.card > h2{
     font-size:13px;
   }
 }
-
 /* =========================
    SECONDARY HOME BUTTON
    ========================= */
 .homeBtn{
-  display:block;
-  width:100%;
-  margin-top:12px;
+  display:inline-block;          /* non full width */
+  margin:16px auto 0;            /* centrato, distaccato dalla card */
 
-  padding:12px 14px;
+  padding:8px 12px;              /* contorno più vicino */
   text-align:center;
 
   font-size:14px;
@@ -208,7 +206,7 @@ main.card > h2{
   background:transparent;
 
   border:2px solid var(--blue);
-  border-radius:var(--radius-m);
+  border-radius:999px;           /* pill button */
 
   text-decoration:none;
   cursor:pointer;
