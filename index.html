@@ -1,245 +1,69 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Formazioni Vendita - Hub</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Il Perfetto Venditore</title>
 
-  <style>
-    :root{
-      --decathlon-blue:#212A9A;
-      --decathlon-blue-dark:#1b227f;
-      --ring: rgba(33,42,154,.26);
-
-      --bg:#f1f3ff;
-      --card:#ffffff;
-      --text:#0b1220;
-      --muted:#4f5b78;
-
-      --shadow:0 10px 30px rgba(11,18,32,.08);
-      --radius:16px;
-    }
-
-    *{ box-sizing:border-box; }
-
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg, #ffffff 0%, var(--bg) 55%, #ffffff 100%);
-      color: var(--text);
-    }
-
-    .wrap{
-      max-width:980px;
-      margin:0 auto;
-      padding:28px 16px 36px;
-    }
-
-    header{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      padding:16px 18px;
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      border:1px solid rgba(2,6,23,.06);
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .logoBox{
-      width:44px;
-      height:44px;
-      border-radius:12px;
-      overflow:hidden;
-    }
-
-    .logoBox img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-    }
-
-    h1{
-      margin:0;
-      font-size:17px;
-    }
-
-    .subtitle{
-      margin:2px 0 0;
-      font-size:12.5px;
-      color:var(--muted);
-    }
-
-    .search{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-end;
-      flex:1;
-    }
-
-    .searchLabel{
-      font-size:12px;
-      font-weight:800;
-      color:rgba(11,18,32,.58);
-      margin-bottom:6px;
-      display:flex;
-      gap:6px;
-      align-items:center;
-    }
-
-    .search input{
-      width:min(420px,100%);
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid rgba(2,6,23,.14);
-      font-size:14px;
-    }
-
-    .search input:focus{
-      outline:none;
-      border-color:rgba(33,42,154,.55);
-      box-shadow:0 0 0 4px var(--ring);
-    }
-
-    main{ margin-top:18px; }
-
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      border:1px solid rgba(2,6,23,.06);
-      padding:16px;
-    }
-
-    .gridTitle{
-      font-size:16px;
-      font-weight:900;
-      margin-bottom:10px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-    }
-
-    @media(max-width:520px){
-      .grid{ grid-template-columns:1fr; }
-    }
-
-    .sectionBtn{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:14px 16px;
-      border-radius:16px;
-      background:var(--decathlon-blue);
-      color:#fff;
-      border:none;
-      cursor:pointer;
-      font-weight:900;
-    }
-
-    .sectionBtn:active{
-      transform:translateY(1px);
-      background:var(--decathlon-blue-dark);
-    }
-
-    .left{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-
-    .emoji{ font-size:19px; }
-    .arrow{ font-size:18px; }
-
-    footer{
-      margin-top:14px;
-      text-align:center;
-      font-size:12px;
-      color:var(--muted);
-    }
-  </style>
+  <!-- CSS UNICO -->
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
+
 <div class="wrap">
 
-<header>
+<header class="header">
   <div class="brand">
-    <div class="logoBox">
-      <img src="decathlon-logo.png" alt="Decathlon">
-    </div>
+    <img src="decathlon-logo.png" alt="Decathlon" class="logo">
     <div>
       <h1>Il Perfetto Venditore</h1>
       <p class="subtitle">Chiedi ai Trainer</p>
     </div>
   </div>
 
-  <div class="search">
-    <div class="searchLabel">🔍 Cerca</div>
-    <input id="searchInput" type="search" placeholder="Cerca una sezione (es. garanzia, incasso…)">
-  </div>
+  <input id="searchInput" type="search" placeholder="Cerca una sezione…">
 </header>
 
-<main>
-<section class="card">
-  <div class="gridTitle">Sezioni</div>
+<main class="card">
+  <h2>Sezioni</h2>
 
   <div class="grid" id="sectionsGrid">
 
-    <button class="sectionBtn" data-name="presentazione wow" onclick="goTo('presentazione-wow/presentazione-wow.html')">
-      <span class="left"><span class="emoji">😁</span>Presentazione WOW</span><span class="arrow">›</span>
-    </button>
+    <button class="sectionBtn" data-name="presentazione wow"
+      onclick="goTo('presentazione-wow/presentazione-wow.html')">😁 Presentazione WOW</button>
 
-    <button class="sectionBtn" data-name="carta decathlon" onclick="goTo('carta-decathlon/carta-decathlon.html')">
-      <span class="left"><span class="emoji">🎫</span>Carta Decathlon</span><span class="arrow">›</span>
-    </button>
+    <button class="sectionBtn" data-name="carta decathlon"
+      onclick="goTo('carta-decathlon/carta-decathlon.html')">🎫 Carta Decathlon</button>
 
-    <button class="sectionBtn" data-name="ordine plus" onclick="goTo('ordine-plus/ordine-plus.html')">
-      <span class="left"><span class="emoji">📦</span>Ordine PLUS</span><span class="arrow">›</span>
-    </button>
+    <button class="sectionBtn" data-name="ordine plus"
+      onclick="goTo('ordine-plus/ordine-plus.html')">📦 Ordine PLUS</button>
 
-    <button class="sectionBtn" data-name="intermag" onclick="goTo('intermag/intermag.html')">
-      <span class="left"><span class="emoji">🚚</span>Intermag</span><span class="arrow">›</span>
-    </button>
+    <button class="sectionBtn" data-name="intermag"
+      onclick="goTo('intermag/intermag.html')">🚚 Intermag</button>
 
-    <button class="sectionBtn" data-name="fatturazione" onclick="goTo('fatturazione/fatturazione.html')">
-      <span class="left"><span class="emoji">🧾</span>Fatturazione</span><span class="arrow">›</span>
-    </button>
+    <button class="sectionBtn" data-name="fatturazione"
+      onclick="goTo('fatturazione/fatturazione.html')">🧾 Fatturazione</button>
 
-    <button class="sectionBtn" data-name="b2b club aziende" onclick="goTo('b2b/b2b.html')">
-      <span class="left"><span class="emoji">🤝</span>B2B</span><span class="arrow">›</span>
-    </button>
+    <button class="sectionBtn" data-name="b2b club aziende"
+      onclick="goTo('b2b/b2b.html')">🤝 B2B</button>
 
-    <button class="sectionBtn" data-name="garanzia assicurazione" onclick="goTo('garanzia-assicurazione/garanzia-assicurazione.html')">
-      <span class="left"><span class="emoji">🛡️</span>Garanzia e Assicurazione</span><span class="arrow">›</span>
-    </button>
+    <button class="sectionBtn" data-name="garanzia assicurazione"
+      onclick="goTo('garanzia-assicurazione/garanzia-assicurazione.html')">🛡️ Garanzia</button>
 
-    <button class="sectionBtn" data-name="incasso cassa" onclick="goTo('incasso/incasso.html')">
-      <span class="left"><span class="emoji">🏧</span>Incasso</span><span class="arrow">›</span>
-    </button>
+    <button class="sectionBtn" data-name="incasso cassa"
+      onclick="goTo('incasso/incasso.html')">🏧 Incasso</button>
 
-    <button class="sectionBtn" data-name="assistenza" onclick="goTo('assistenza/assistenza.html')">
-      <span class="left"><span class="emoji">🧰</span>Assistenza</span><span class="arrow">›</span>
-    </button>
+    <button class="sectionBtn" data-name="assistenza"
+      onclick="goTo('assistenza/assistenza.html')">🧰 Assistenza</button>
 
-    <button class="sectionBtn" data-name="second hand usato" onclick="goTo('second-hand/second-hand.html')">
-      <span class="left"><span class="emoji">♻️</span>Second Hand</span><span class="arrow">›</span>
-    </button>
+    <button class="sectionBtn" data-name="second hand usato"
+      onclick="goTo('second-hand/second-hand.html')">♻️ Second Hand</button>
 
   </div>
-</section>
 </main>
 
-<footer>© Il Perfetto Venditore di Fiumi465</footer>
+<footer>© Il Perfetto Venditore</footer>
 
 </div>
 
