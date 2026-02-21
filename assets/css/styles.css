@@ -140,3 +140,9 @@ footer{
     margin-top: 24px;
   }
 }
+
+/* Nasconde il titolo "Sezioni" */
+.gridTitle,
+main.card > h2 {
+  display: none;
+}
