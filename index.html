@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Il Perfetto Venditore</title>
 
-  <!-- CSS UNICO -->
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -17,18 +17,16 @@
   <header class="header">
     <div class="brand">
       <img src="decathlon-logo.png" alt="Decathlon" class="logo">
-
       <div class="titles">
         <h1>Il Perfetto Venditore</h1>
         <p class="subtitle">Chiedi ai Trainer</p>
       </div>
     </div>
 
-    <!-- MICRO TASTO CERCA -->
     <button class="searchBtn" aria-label="Cerca">🔍</button>
   </header>
 
-  <!-- INPUT CERCA (NASCOSTO DI DEFAULT) -->
+  <!-- SEARCH INPUT -->
   <input
     id="searchInput"
     class="searchHidden"
@@ -36,9 +34,8 @@
     placeholder="Cerca una sezione…"
   >
 
-  <!-- CONTENUTO -->
+  <!-- CONTENT -->
   <main class="card">
-
     <div class="grid" id="sectionsGrid">
 
       <button class="sectionBtn" data-name="presentazione wow"
@@ -98,25 +95,21 @@
 
 </div>
 
-<!-- SCRIPT UNICO -->
+<!-- SCRIPT -->
 <script>
-/* Navigazione */
 function goTo(page){
   window.location.href = page;
 }
 
-/* Toggle ricerca */
 const searchBtn = document.querySelector(".searchBtn");
 const searchInput = document.getElementById("searchInput");
+const buttons = document.querySelectorAll(".sectionBtn");
 
 searchBtn.addEventListener("click", () => {
   const hidden = searchInput.classList.toggle("searchHidden");
   searchBtn.textContent = hidden ? "🔍" : "❌";
   if (!hidden) searchInput.focus();
 });
-
-/* Filtro sezioni */
-const buttons = document.querySelectorAll(".sectionBtn");
 
 searchInput.addEventListener("input", () => {
   const q = searchInput.value.toLowerCase();
