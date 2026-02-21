@@ -106,3 +106,14 @@ searchToggle.addEventListener("click", () => {
   }
 });
 </script>
+
+<script>
+const searchBtn = document.querySelector(".searchBtn");
+const searchInput = document.getElementById("searchInput");
+
+searchBtn.addEventListener("click", () => {
+  const isHidden = searchInput.classList.toggle("searchHidden");
+  searchBtn.textContent = isHidden ? "🔍" : "❌";
+  if (!isHidden) searchInput.focus();
+});
+</script>
