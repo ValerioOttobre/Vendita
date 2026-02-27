@@ -1,5 +1,4 @@
 # Vendita
-# Vendita
 
 ## Perché esiste questo sito
 **Vendita** è uno strumento di supporto operativo interno, pensato per accompagnare i commessi durante il lavoro quotidiano in negozio.
