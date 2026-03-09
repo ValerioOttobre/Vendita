@@ -1,50 +1,69 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Assistenza – Formazioni Vendita</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intermag – Decathlon</title>
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <!-- HEADER -->
-    <header>
-      <div class="brand">
-        <div class="logoBox">
-          <img src="decathlon-logo.png" alt="Decathlon">
-        </div>
-        <h1 class="sectionTitle">Intermag 🚚</h1>
+  <!-- HEADER IDENTICO -->
+  <header class="header">
+    <div class="brand">
+      <img src="../decathlon-logo.png" alt="Decathlon" class="logo">
+      <div class="titles">
+        <h1>Intermag</h1>
+        <p class="subtitle">Gestione trasferimenti tra negozi</p>
       </div>
-    </header>
+    </div>
+    <span style="width:32px;"></span>
+  </header>
 
-    <!-- CONTENUTO -->
-    <main>
-      <section class="card">
+  <!-- CONTENUTO -->
+  <main class="card">
 
-        <div class="grid full">
-          <button class="numberBtn">1</button>
+    <div class="grid">
 
-          <a href="giro-navette.png" target="_blank" class="numberBtn linkBtn">
-            Giro Navette
-          </a>
+      <button class="sectionBtn"
+      onclick="window.location.href='a-chi-serve.html'">
+        A chi serve l'Intermag
+      </button>
 
-          <button class="numberBtn">3</button>
-          <button class="numberBtn">4</button>
-          <button class="numberBtn">5</button>
-        </div>
+      <button class="sectionBtn"
+      onclick="window.location.href='creare-intermag.html'">
+        Creare un Intermag
+      </button>
 
-      </section>
-    </main>
+      <button class="sectionBtn"
+      onclick="window.location.href='ricezionare-intermag.html'">
+        Ricezionare un Intermag
+      </button>
 
-    <!-- FOOTER -->
-    <footer>
-      <a href="index.html" class="homeBtn">← Torna alla Home</a>
-    </footer>
+      <button class="sectionBtn"
+      onclick="window.open('LINK_MODULO','_blank')">
+        Modulo Richiesta Intermag
+      </button>
 
-  </div>
+      <button class="sectionBtn"
+      onclick="window.open('LINK_DATABASE','_blank')">
+        Database Intermag
+      </button>
+
+    </div>
+
+    <div style="margin-top:20px; text-align:center;">
+      <button class="sectionBtn"
+      onclick="window.location.href='../index.html'">
+        ← Torna alla Home
+      </button>
+    </div>
+
+  </main>
+
+</div>
 </body>
 </html>
