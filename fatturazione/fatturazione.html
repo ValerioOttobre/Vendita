@@ -1,46 +1,61 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Assistenza – Formazioni Vendita</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fatturazione</title>
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <!-- HEADER -->
-    <header>
-      <div class="brand">
-        <div class="logoBox">
-          <img src="decathlon-logo.png" alt="Decathlon">
-        </div>
-        <h1 class="sectionTitle">Fatturazione 🧾</h1>
+  <!-- HEADER IDENTICO -->
+  <header class="header">
+    <div class="brand">
+      <img src="../decathlon-logo.png" alt="Decathlon" class="logo">
+      <div class="titles">
+        <h1>Fatturazione</h1>
+        <p class="subtitle">Vendita</p>
       </div>
-    </header>
+    </div>
 
-    <!-- CONTENUTO -->
-    <main>
-      <section class="card">
+    <button class="backBtn" onclick="window.location.href='../index.html'">⌂</button>
+  </header>
 
-        <div class="grid full">
-          <button class="numberBtn">1</button>
-          <button class="numberBtn">2</button>
-          <button class="numberBtn">3</button>
-          <button class="numberBtn">4</button>
-          <button class="numberBtn">5</button>
-        </div>
+  <!-- CONTENUTO -->
+  <main class="card">
+    <div class="card-content">
+      <p class="lead">
+        In questa sezione trovi le principali procedure relative alla <strong>fatturazione</strong>.
+        Seleziona l’argomento che ti serve.
+      </p>
 
-      </section>
-    </main>
+      <div class="grid">
+        <button class="sectionBtn" onclick="window.location.href='fattura-privati.html'">
+          Fattura per Privati
+        </button>
 
-    <!-- FOOTER -->
-    <footer>
-      <a href="index.html" class="homeBtn">← Torna alla Home</a>
-    </footer>
+        <button class="sectionBtn" onclick="window.location.href='fattura-societa.html'">
+          Fattura per Società
+        </button>
 
-  </div>
+        <button class="sectionBtn" onclick="window.location.href='documenti-iva-speciale.html'">
+          Documenti IVA speciale
+        </button>
+
+        <button class="sectionBtn" onclick="window.location.href='cambiare-prodotto-fattura.html'">
+          Cambiare un prodotto con fattura
+        </button>
+
+        <button class="sectionBtn" onclick="window.location.href='tax-free.html'">
+          TAX FREE
+        </button>
+      </div>
+    </div>
+  </main>
+
+</div>
 </body>
 </html>
