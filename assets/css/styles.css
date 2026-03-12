@@ -217,3 +217,13 @@ main.card > h2{
   background:var(--blue);
   color:#fff;
 }
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
