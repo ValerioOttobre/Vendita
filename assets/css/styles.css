@@ -217,22 +217,3 @@ main.card > h2{
   background:var(--blue);
   color:#fff;
 }
-
-.improve-banner {
-  background: linear-gradient(135deg,#0082c3,#0aa4e0);
-  color: white;
-  padding: 18px 20px;
-  border-radius: 14px;
-  margin-bottom: 20px;
-}
-
-.improve-banner h2 {
-  margin: 0 0 6px;
-  font-size: 1.2rem;
-}
-
-.improve-banner p {
-  margin: 0;
-  opacity: 0.9;
-  font-size: 0.95rem;
-}
