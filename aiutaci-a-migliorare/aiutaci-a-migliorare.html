@@ -6,149 +6,12 @@
   <title>B2B – Aiutaci a migliorare</title>
 
   <link rel="stylesheet" href="../assets/css/styles.css">
-
-  <style>
-    .actions-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .action-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 64px;
-      padding: 16px 20px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      background: #0082c3;
-      color: #fff;
-      transition: transform 0.15s ease, opacity 0.15s ease;
-    }
-
-    .action-btn:hover {
-      transform: translateY(-1px);
-      opacity: 0.95;
-    }
-
-    .action-btn.secondary {
-      background: #f3f6f8;
-      color: #1d1d1f;
-      border: 1px solid #d9e2e8;
-    }
-
-    .helper-text {
-      margin-top: 18px;
-      font-size: 0.95rem;
-      color: #5b6570;
-      line-height: 1.5;
-    }
-
-    /* MODALE */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 1000;
-    }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal-box {
-      width: 100%;
-      max-width: 560px;
-      background: #fff;
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
-    }
-
-    .modal-box h2 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.35rem;
-    }
-
-    .modal-box p {
-      margin-top: 0;
-      margin-bottom: 16px;
-      color: #5b6570;
-      line-height: 1.5;
-    }
-
-    .question-textarea {
-      width: 100%;
-      min-height: 160px;
-      resize: vertical;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid #cfd8df;
-      font: inherit;
-      line-height: 1.5;
-      box-sizing: border-box;
-      margin-bottom: 16px;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-    }
-
-    .modal-btn {
-      min-width: 120px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      font-weight: 700;
-      font: inherit;
-    }
-
-    .modal-btn.cancel {
-      background: #eef2f5;
-      color: #1d1d1f;
-    }
-
-    .modal-btn.confirm {
-      background: #0082c3;
-      color: #fff;
-    }
-
-    .feedback-msg {
-      margin-top: 10px;
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .feedback-msg.success {
-      color: #118a43;
-    }
-
-    .feedback-msg.error {
-      color: #c62828;
-    }
-  </style>
 </head>
 
 <body>
 <div class="wrap">
 
-  <!-- HEADER IDENTICO -->
+  <!-- HEADER IDENTICO ALLE ALTRE PAGINE -->
   <header class="header">
     <div class="brand">
       <img src="../decathlon-logo.png" alt="Decathlon" class="logo">
@@ -164,29 +27,37 @@
   <main class="card">
     <div class="card-content">
 
+      <!-- BANNER BLU -->
+      <div class="improve-banner">
+        <h2>Aiutaci a migliorare il sito</h2>
+        <p>
+          Se durante il turno trovi un passaggio poco chiaro o un dubbio,
+          inserisci una domanda. Le segnalazioni ci aiutano a migliorare
+          le procedure per tutti.
+        </p>
+      </div>
+
       <p class="lead">
-        Questa sezione permette di raccogliere dubbi, segnalazioni e suggerimenti per migliorare il sito e chiarire i passaggi meno immediati.
+        Questa sezione raccoglie dubbi e suggerimenti degli utilizzatori del sito.
+        Le domande verranno poi analizzate per migliorare le guide operative.
       </p>
 
-      <div class="actions-grid">
-        <button class="action-btn" id="openQuestionModal">
+      <!-- PULSANTI -->
+      <div style="display:grid; gap:14px; margin-top:20px;">
+
+        <button class="action-btn" onclick="apriNuovaDomanda()">
           Nuova Domanda
         </button>
 
-        <a class="action-btn secondary" href="box-domande.html">
+        <button class="action-btn secondary" onclick="openBoxDomande()">
           Box Domande
-        </a>
+        </button>
 
         <a class="action-btn secondary" href="crediti.html">
           Crediti
         </a>
-      </div>
 
-      <p class="helper-text">
-        Usa <strong>Nuova Domanda</strong> per inserire un dubbio o una richiesta di chiarimento.  
-        In <strong>Box Domande</strong> saranno raccolte le domande inviate dagli utilizzatori del sito.  
-        La sezione <strong>Crediti</strong> potrà contenere ringraziamenti, contributi e note finali.
-      </p>
+      </div>
 
     </div>
   </main>
@@ -194,12 +65,14 @@
 </div>
 
 <!-- MODALE NUOVA DOMANDA -->
-<div class="modal-overlay" id="questionModal">
+<div id="questionModal" class="modal-overlay">
+
   <div class="modal-box">
+
     <h2>Inserisci una nuova domanda</h2>
+
     <p>
-      Scrivi qui un dubbio, una segnalazione o una richiesta di chiarimento.  
-      La domanda verrà poi raccolta nel Box Domande.
+      Scrivi qui un dubbio o una segnalazione per migliorare il sito.
     </p>
 
     <textarea
@@ -209,85 +82,94 @@
     ></textarea>
 
     <div class="modal-actions">
-      <button class="modal-btn cancel" id="closeQuestionModal">Annulla</button>
-      <button class="modal-btn confirm" id="saveQuestionBtn">Invia</button>
+
+      <button class="modal-btn cancel" onclick="chiudiModal()">
+        Annulla
+      </button>
+
+      <button class="modal-btn confirm" onclick="salvaDomanda()">
+        Invia
+      </button>
+
     </div>
 
-    <p id="feedbackMsg" class="feedback-msg"></p>
+    <p id="feedbackMsg"></p>
+
   </div>
+
 </div>
 
+
 <script>
-  const openModalBtn = document.getElementById("openQuestionModal");
-  const closeModalBtn = document.getElementById("closeQuestionModal");
-  const modal = document.getElementById("questionModal");
-  const saveBtn = document.getElementById("saveQuestionBtn");
-  const questionInput = document.getElementById("questionInput");
-  const feedbackMsg = document.getElementById("feedbackMsg");
 
-  openModalBtn.addEventListener("click", () => {
-    modal.classList.add("active");
-    feedbackMsg.textContent = "";
-    feedbackMsg.className = "feedback-msg";
-    questionInput.value = "";
-    setTimeout(() => questionInput.focus(), 100);
+/* -----------------------
+   MODALE NUOVA DOMANDA
+----------------------- */
+
+function apriNuovaDomanda(){
+  document.getElementById("questionModal").style.display = "flex";
+}
+
+function chiudiModal(){
+  document.getElementById("questionModal").style.display = "none";
+}
+
+
+/* -----------------------
+   SALVATAGGIO DOMANDA
+----------------------- */
+
+function salvaDomanda(){
+
+  const domanda = document.getElementById("questionInput").value.trim();
+
+  if(!domanda){
+    alert("Scrivi una domanda prima di inviare.");
+    return;
+  }
+
+  let domande = JSON.parse(localStorage.getItem("boxDomande") || "[]");
+
+  domande.unshift({
+    testo: domanda,
+    data: new Date().toLocaleString("it-IT"),
+    pagina: window.location.pathname
   });
 
-  closeModalBtn.addEventListener("click", () => {
-    modal.classList.remove("active");
-  });
+  localStorage.setItem("boxDomande", JSON.stringify(domande));
 
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("active");
-    }
-  });
+  document.getElementById("questionInput").value = "";
 
-  saveBtn.addEventListener("click", async () => {
-    const question = questionInput.value.trim();
+  alert("Domanda salvata.");
 
-    if (!question) {
-      feedbackMsg.textContent = "Scrivi una domanda prima di inviare.";
-      feedbackMsg.className = "feedback-msg error";
-      return;
-    }
+  chiudiModal();
 
-    try {
-      /*
-        VERSIONE TEMPORANEA:
-        qui puoi scegliere una di queste due strade:
+}
 
-        1) Solo test locale:
-           salvi in localStorage per verificare il funzionamento.
 
-        2) Versione definitiva:
-           sostituisci questo blocco con una fetch() verso Apps Script
-           o verso il tuo backend.
-      */
+/* -----------------------
+   ACCESSO BOX DOMANDE
+----------------------- */
 
-      const existingQuestions = JSON.parse(localStorage.getItem("boxDomande") || "[]");
+function openBoxDomande(){
 
-      existingQuestions.unshift({
-        testo: question,
-        data: new Date().toLocaleString("it-IT"),
-        pagina: window.location.pathname
-      });
+  const passwordCorretta = "decathlon2026";
 
-      localStorage.setItem("boxDomande", JSON.stringify(existingQuestions));
+  const password = prompt("Inserisci la password per accedere al Box Domande:");
 
-      feedbackMsg.textContent = "Domanda salvata correttamente.";
-      feedbackMsg.className = "feedback-msg success";
+  if(password === passwordCorretta){
 
-      setTimeout(() => {
-        modal.classList.remove("active");
-      }, 700);
+    window.location.href = "box-domande.html";
 
-    } catch (error) {
-      feedbackMsg.textContent = "Errore durante il salvataggio della domanda.";
-      feedbackMsg.className = "feedback-msg error";
-      console.error(error);
-    }
-  });
+  }else{
+
+    alert("Password non corretta.");
+
+  }
+
+}
+
 </script>
+
 </body>
 </html>
