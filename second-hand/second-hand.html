@@ -3,62 +3,76 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Second Hand – Vendita</title>
+  <title>Second Hand</title>
 
   <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
 <body>
+
 <div class="wrap">
 
-  <!-- HEADER IDENTICO -->
+  <!-- HEADER IDENTICO ALLA HOME -->
   <header class="header">
     <div class="brand">
       <img src="../decathlon-logo.png" alt="Decathlon" class="logo">
+
       <div class="titles">
         <h1>Second Hand</h1>
-        <p class="subtitle">Vendita</p>
+        <p class="subtitle">Gestione articoli • Vendita • Resi</p>
       </div>
     </div>
+
     <span style="width:32px;"></span>
   </header>
 
   <!-- CONTENUTO -->
   <main class="card">
-    <div class="card-content">
 
-      <p class="lead">
-        In questa sezione trovi le informazioni principali per gestire correttamente il
-        <strong>Second Hand</strong> e distinguerlo dagli altri flussi di vendita.
-      </p>
+    <div class="grid">
 
-      <ul class="benefits">
-        <li>
-          <a href="second-hand-o-epv.html">Second Hand o EPV?</a>
-        </li>
-        <li>
-          <a href="passare-articolo-second-hand.html">Come passare un articolo in Second Hand</a>
-        </li>
-        <li>
-          <a href="mettere-in-vendita-second-hand.html">Come mettere in vendita un Second Hand</a>
-        </li>
-        <li>
-          <a href="differenze-prodotti-normali.html">Differenze con i normali prodotti</a>
-        </li>
-        <li>
-          <a href="resi-second-hand.html">Resi Second Hand</a>
-        </li>
-      </ul>
+      <button class="sectionBtn"
+        onclick="window.open('https://docs.google.com/spreadsheets/d/1Qc9knD-aXnAv9j7aas5BAafuAPpci2M9GcQhssMrvgI/edit?gid=289543160#gid=289543160', '_blank')">
+        Second Hand o EPV?
+      </button>
 
-      <a class="homeBtn" href="../index.html">← Torna alla Home</a>
+      <button class="sectionBtn"
+        onclick="location.href='second-hand-riacquistare-articolo.html'">
+        Riacquistare un articolo Second Hand
+      </button>
+
+      <button class="sectionBtn"
+        onclick="location.href='second-hand-passare-articolo.html'">
+        Come passare un articolo in Second Hand
+      </button>
+
+      <button class="sectionBtn"
+        onclick="location.href='second-hand-mettere-in-vendita.html'">
+        Come mettere in vendita un Second Hand
+      </button>
+
+      <button class="sectionBtn"
+        onclick="location.href='second-hand-differenze-prodotti.html'">
+        Differenze con i normali prodotti
+      </button>
+
+      <button class="sectionBtn"
+        onclick="location.href='second-hand-resi.html'">
+        Resi Second Hand
+      </button>
 
     </div>
+
   </main>
 
-  <footer>
-    © Il Perfetto Venditore
-  </footer>
+  <!-- TORNA ALLA HOME (FUORI DALLA CARD) -->
+  <div style="text-align:center;">
+    <a href="../index.html" class="homeBtn">
+      ← Torna alla Home
+    </a>
+  </div>
 
 </div>
+
 </body>
 </html>
