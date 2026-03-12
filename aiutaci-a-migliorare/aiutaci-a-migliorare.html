@@ -9,22 +9,26 @@
 </head>
 
 <body>
+
 <div class="wrap">
 
-  <!-- HEADER IDENTICO ALLE ALTRE PAGINE -->
+  <!-- HEADER IDENTICO ALLA HOME -->
   <header class="header">
     <div class="brand">
       <img src="../decathlon-logo.png" alt="Decathlon" class="logo">
+
       <div class="titles">
-        <h1>Aiutaci a migliorare</h1>
-        <p class="subtitle">B2B</p>
+        <h1>B2B</h1>
+        <p class="subtitle">Club • Aziende • Associazioni</p>
       </div>
     </div>
+
     <span style="width:32px;"></span>
   </header>
 
   <!-- CONTENUTO -->
   <main class="card">
+
     <div class="card-content">
 
       <!-- BANNER BLU -->
@@ -37,36 +41,37 @@
         </p>
       </div>
 
-      <p class="lead">
-        Questa sezione raccoglie dubbi e suggerimenti degli utilizzatori del sito.
-        Le domande verranno poi analizzate per migliorare le guide operative.
-      </p>
+      <div class="grid">
 
-      <!-- PULSANTI -->
-      <div style="display:grid; gap:14px; margin-top:20px;">
-
-        <button class="action-btn" onclick="apriNuovaDomanda()">
+        <button class="sectionBtn" onclick="apriNuovaDomanda()">
           Nuova Domanda
         </button>
 
-        <button class="action-btn secondary" onclick="openBoxDomande()">
+        <button class="sectionBtn" onclick="openBoxDomande()">
           Box Domande
         </button>
 
-        <a class="action-btn secondary" href="crediti.html">
+        <button class="sectionBtn" onclick="location.href='crediti.html'">
           Crediti
-        </a>
+        </button>
 
       </div>
 
     </div>
+
   </main>
+
+  <!-- TORNA ALLA HOME -->
+  <div style="text-align:center;">
+    <a href="../index.html" class="homeBtn">
+      ← Torna alla Home
+    </a>
+  </div>
 
 </div>
 
 <!-- MODALE NUOVA DOMANDA -->
 <div id="questionModal" class="modal-overlay">
-
   <div class="modal-box">
 
     <h2>Inserisci una nuova domanda</h2>
@@ -82,7 +87,6 @@
     ></textarea>
 
     <div class="modal-actions">
-
       <button class="modal-btn cancel" onclick="chiudiModal()">
         Annulla
       </button>
@@ -90,40 +94,24 @@
       <button class="modal-btn confirm" onclick="salvaDomanda()">
         Invia
       </button>
-
     </div>
 
-    <p id="feedbackMsg"></p>
-
   </div>
-
 </div>
 
-
 <script>
-
-/* -----------------------
-   MODALE NUOVA DOMANDA
------------------------ */
-
-function apriNuovaDomanda(){
+function apriNuovaDomanda() {
   document.getElementById("questionModal").style.display = "flex";
 }
 
-function chiudiModal(){
+function chiudiModal() {
   document.getElementById("questionModal").style.display = "none";
 }
 
-
-/* -----------------------
-   SALVATAGGIO DOMANDA
------------------------ */
-
-function salvaDomanda(){
-
+function salvaDomanda() {
   const domanda = document.getElementById("questionInput").value.trim();
 
-  if(!domanda){
+  if (!domanda) {
     alert("Scrivi una domanda prima di inviare.");
     return;
   }
@@ -139,36 +127,20 @@ function salvaDomanda(){
   localStorage.setItem("boxDomande", JSON.stringify(domande));
 
   document.getElementById("questionInput").value = "";
-
   alert("Domanda salvata.");
-
   chiudiModal();
-
 }
 
-
-/* -----------------------
-   ACCESSO BOX DOMANDE
------------------------ */
-
-function openBoxDomande(){
-
+function openBoxDomande() {
   const passwordCorretta = "decathlon2026";
-
   const password = prompt("Inserisci la password per accedere al Box Domande:");
 
-  if(password === passwordCorretta){
-
+  if (password === passwordCorretta) {
     window.location.href = "box-domande.html";
-
-  }else{
-
+  } else {
     alert("Password non corretta.");
-
   }
-
 }
-
 </script>
 
 </body>
